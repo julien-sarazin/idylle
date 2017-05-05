@@ -1,6 +1,7 @@
-language: javascript
-nvm:
-- 6.10.0
+language: node_js
+node_js:
+  - "6.10"
+
 install:
 - npm install
 branches:
