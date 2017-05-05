@@ -1,4 +1,6 @@
 # Idyll
+[![Build Status](https://travis-ci.org/julien-sarazin/idyll.svg?branch=master)](https://travis-ci.org/julien-sarazin/idyll)
+
 A micro framework on top of express.
 
 
