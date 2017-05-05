@@ -1,5 +1,5 @@
 {
-    "name": "idyll",
+    "name": "idylle",
     "version": "1.0.0",
     "description": "A micro framework on top of express.",
     "main": "index.js",
@@ -8,22 +8,22 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/julien-sarazin/idyll.git"
+        "url": "git+https://github.com/julien-sarazin/idylle.git"
     },
     "keywords": [
         "framework",
         "express",
         "micro-framework",
-        "idyll",
+        "idylle",
         "javascript",
         "es6"
     ],
     "author": "Julien Sarazin <sarazin.julien@digipolitan.com>, Julian Farhi <farhi.julian@digipolitan.com>, Julien Brouzes <brouzes.julien@digipolitan.com>, Benoit Briatte <briatte.benoit@digipolitan.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/julien-sarazin/idyll/issues"
+        "url": "https://github.com/julien-sarazin/idylle/issues"
     },
-    "homepage": "https://github.com/julien-sarazin/idyll#readme",
+    "homepage": "https://github.com/julien-sarazin/idylle#readme",
     "dependencies": {
         "bluebird": "^3.5.0",
         "expect": "^1.20.2",

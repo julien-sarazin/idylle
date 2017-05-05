@@ -1,5 +1,5 @@
-# Idyll
-[![Build Status](https://travis-ci.org/julien-sarazin/idyll.svg?branch=master)](https://travis-ci.org/julien-sarazin/idyll)
+# Idylle
+[![Build Status](https://travis-ci.org/julien-sarazin/idylle.svg?branch=master)](https://travis-ci.org/julien-sarazin/idylle)
 
 A micro framework on top of express.
 
@@ -19,24 +19,24 @@ A micro framework on top of express.
 ### Usage
 
 ```javascript
-const Idyll      = require('Idyll');
-const server    = new Idyll();
+const Idylle      = require('Idylle');
+const server    = new Idylle();
 
 
 // Initialization phases.
-server.on(Idyll.events.init.settings,        require('./settings'));
-server.on(Idyll.events.init.models,          require('./models'));
-server.on(Idyll.events.init.middlewares,     require('./middlewares'));
-server.on(Idyll.events.init.actions,         require('./actions'));
-server.on(Idyll.events.init.routes,          require('./routes'));
-server.on(Idyll.events.init.cache,           require('./cache'));
+server.on(Idylle.events.init.settings,        require('./settings'));
+server.on(Idylle.events.init.models,          require('./models'));
+server.on(Idylle.events.init.middlewares,     require('./middlewares'));
+server.on(Idylle.events.init.actions,         require('./actions'));
+server.on(Idylle.events.init.routes,          require('./routes'));
+server.on(Idylle.events.init.cache,           require('./cache'));
 
 // Starting phase.
-server.on(Idyll.events.booting,              require('./boot'));
-server.on(Idyll.events.booting,              require('./docs'));
+server.on(Idylle.events.booting,              require('./boot'));
+server.on(Idylle.events.booting,              require('./docs'));
 
 // Post Start.
-server.on(Idyll.events.started, (server) => {
+server.on(Idylle.events.started, (server) => {
     console.log(`Server listening on port ${server.settings.port}`);
 });
 

@@ -4,7 +4,7 @@ const ContextBuilder = require('./lib/ContextBuilder');
 
 const DEFAULT_PORT = 8080;
 
-class Idyll {
+class Idylle {
     constructor() {
         this.criteriaBuilder = undefined;
         this.router = express();
@@ -20,16 +20,16 @@ class Idyll {
     static get events() {
         return {
             init: {
-                criteriaBuilder: 'Idyll.events.init.criteria_builder',
-                settings: 'Idyll.events.init.settings',
-                middlewares: 'Idyll.events.init.middlewares',
-                models: 'Idyll.events.init.models',
-                actions: 'Idyll.events.init.actions',
-                routes: 'Idyll.events.init.routes',
-                cache: 'Idyll.events.init.cache'
+                criteriaBuilder: 'Idylle.events.init.criteria_builder',
+                settings: 'Idylle.events.init.settings',
+                middlewares: 'Idylle.events.init.middlewares',
+                models: 'Idylle.events.init.models',
+                actions: 'Idylle.events.init.actions',
+                routes: 'Idylle.events.init.routes',
+                cache: 'Idylle.events.init.cache'
             },
-            booting: 'Idyll.events.starting',
-            started: 'Idyll.events.started'
+            booting: 'Idylle.events.starting',
+            started: 'Idylle.events.started'
         };
     }
 
@@ -50,42 +50,42 @@ class Idyll {
 
 
         function initCriteriaBuilder() {
-            const promises = (self.listeners[Idyll.events.init.criteriaBuilder] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.init.criteriaBuilder] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
         function initSettings() {
-            const promises = (self.listeners[Idyll.events.init.settings] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.init.settings] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
         function initMiddlewares() {
-            const promises = (self.listeners[Idyll.events.init.middlewares] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.init.middlewares] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
         function initModels() {
-            const promises = (self.listeners[Idyll.events.init.models] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.init.models] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
         function initActions() {
-            const promises = (self.listeners[Idyll.events.init.actions] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.init.actions] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
         function initRoutes() {
-            const promises = (self.listeners[Idyll.events.init.routes] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.init.routes] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
         function initCache() {
-            const promises = (self.listeners[Idyll.events.init.cache] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.init.cache] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
         function boot() {
-            const promises = (self.listeners[Idyll.events.booting] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.booting] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
@@ -94,7 +94,7 @@ class Idyll {
         }
 
         function started() {
-            const promises = (self.listeners[Idyll.events.started] || []).map((fn) => fn());
+            const promises = (self.listeners[Idylle.events.started] || []).map((fn) => fn());
             return promises ? Promise.all(promises) : undefined;
         }
 
@@ -110,10 +110,10 @@ class Idyll {
     on(event, listener) {
         this.listeners[event] = this.listeners[event] || [];
 
-        if (event === Idyll.events.init.settings)
+        if (event === Idylle.events.init.settings)
             return this.listeners[event].push(listener.bind(listener, this.settings));
 
-        if (event === Idyll.events.init.criteriaBuilder)
+        if (event === Idylle.events.init.criteriaBuilder)
             return this.listeners[event].push(listener.bind(listener, this.criteriaBuilder));
 
         return this.listeners[event].push(listener.bind(listener, this));
@@ -138,7 +138,7 @@ class Idyll {
                 self.cache.remove(action.cache.bust);
 
 
-            // >>> Idyll FLOW :
+            // >>> Idylle FLOW :
             // 1. Executing the action
             // 2. Setting a cache entry if configured to do so.
             // 3. Responding to the client.
@@ -158,4 +158,4 @@ class Idyll {
     };
 }
 
-module.exports = Idyll;
+module.exports = Idylle;
