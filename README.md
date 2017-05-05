@@ -1,4 +1,4 @@
-# Ydyll
+# Idyll
 A micro framework on top of express.
 
 
