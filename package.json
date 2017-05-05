@@ -4,7 +4,7 @@
   "description": "A micro framework on top of express.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,10 @@
   "homepage": "https://github.com/julien-sarazin/idyll#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
-    "express": "^4.15.2"
+    "expect": "^1.20.2",
+    "expect.js": "^0.3.1",
+    "express": "^4.15.2",
+    "mocha": "^3.3.0",
+    "sinon": "^2.2.0"
   }
 }

@@ -1,0 +1,19 @@
+language: javascript
+
+nvm:
+- 6.10.0
+
+install:
+  - npm install
+
+branches:
+  only:
+  - master
+
+
+deploy:
+  provider: npm
+  email: julien.sarazin@me.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true

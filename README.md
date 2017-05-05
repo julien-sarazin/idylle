@@ -41,7 +41,7 @@ server.on(Idyll.events.started, (server) => {
 // Launching server.
 server.start();
 
-// Exposing the router allowing e2e tests.
+test
 module.exports = server;
 ```
 
