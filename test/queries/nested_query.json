@@ -1,0 +1,24 @@
+{
+    "filter": {
+        "limit": 10,
+        "offset": 3,
+        "includes": [
+            {
+                "foo": [
+                    "bar"
+                ]
+            },
+            "foo",
+            {
+                "foo": {
+                    "bar": {
+                        "baz": [
+                            "bur",
+                            "tar"
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

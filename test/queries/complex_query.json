@@ -1,0 +1,15 @@
+{
+    "filter": {
+        "limit": 10,
+        "offset": 3,
+        "includes": [
+            {
+                "cold_weaknesses": [
+                    "frozen_ground",
+                    "ice_bolt",
+                    "added_cold_damage"
+                ]
+            }
+        ]
+    }
+}
