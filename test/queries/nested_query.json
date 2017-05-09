@@ -1,5 +1,4 @@
 {
-    "filter": {
         "limit": 10,
         "offset": 3,
         "includes": [
@@ -20,5 +19,4 @@
                 }
             }
         ]
-    }
 }

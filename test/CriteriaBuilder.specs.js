@@ -3,10 +3,10 @@ const describe = require("mocha").describe;
 const it = require("mocha").it;
 
 const SUT                   = require('../lib/CriteriaBuilder');
-const invalid_query         = require('./queries/invalid_query.json');
-const simple_query          = require('./queries/simple_query.json');
-const complex_query         = require('./queries/complex_query.json');
-const very_complex_query    = require('./queries/nested_query.json');
+const invalid_query         = {criteria: JSON.stringify(require('./queries/invalid_query.json'))};
+const simple_query          = {criteria: JSON.stringify(require('./queries/simple_query.json'))};
+const complex_query         = {criteria: JSON.stringify(require('./queries/complex_query.json'))};
+const very_complex_query    = {criteria: JSON.stringify(require('./queries/nested_query.json'))};
 
 describe('CriteriaBuilder', () => {
     describe('when an invalid query is made', () => {
