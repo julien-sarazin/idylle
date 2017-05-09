@@ -2,7 +2,6 @@ const expect = require('expect');
 const describe = require("mocha").describe;
 const it = require("mocha").it;
 
-
 const SUT                   = require('../lib/CriteriaBuilder');
 const invalid_query         = require('./queries/invalid_query.json');
 const simple_query          = require('./queries/simple_query.json');

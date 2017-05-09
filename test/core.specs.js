@@ -1,8 +1,9 @@
-const SUT = require('../index');
-const expect = require('expect');
-const describe = require('mocha').describe;
-const it = require('mocha').it;
-const sinon = require('sinon');
+const SUT       = require('../index');
+const expect    = require('expect');
+const describe  = require('mocha').describe;
+const it        = require('mocha').it;
+const sinon     = require('sinon');
+const request   = require('supertest');
 
 describe('Idyll', () => {
     describe('during initialization', () => {
