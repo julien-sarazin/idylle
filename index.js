@@ -7,7 +7,7 @@ const DEFAULT_PORT = 8080;
 class Idylle {
     constructor() {
         this.criteriaBuilder = undefined;
-        this.router = express();
+        this.router = undefined;
         this.actions = {};
         this.middlewares = {};
         this.models = {};
@@ -33,8 +33,43 @@ class Idylle {
         };
     }
 
+    _setup() {
+        this.router = express();
+        this.router.use(decorateResponse);
+
+        function decorateResponse(req, res, next) {
+            res.created = () => {
+                return res.status(201).send();
+            };
+
+            res.noContent = () => {
+                return res.status(204).send();
+            };
+
+            res.partial = (partial) => {
+                return res.status(206).send(partial);
+            };
+
+            res.submit = (data) => {
+                res.send(data);
+            };
+
+            res.error = (error) => {
+                if (error.code && error.code >= 300 && error.code <= 500)
+                    return res.status(error.code).send(error.reason);
+
+                console.log(error.toString(), JSON.stringify(error));
+                return res.status(500).send();
+            };
+
+            next();
+        }
+    }
+
     init() {
         const self = this;
+
+        self._setup();
 
         return initCriteriaBuilder()
             .then(initSettings)
