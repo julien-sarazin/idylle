@@ -148,6 +148,9 @@ class Idylle {
         if (event === Idylle.events.init.settings)
             return this.listeners[event].push(listener.bind(listener, this.settings));
 
+        if (event === Idylle.events.init.models)
+            return this.listeners[event].push(listener.bind(listener, this.models));
+
         if (event === Idylle.events.init.criteriaBuilder)
             return this.listeners[event].push(listener.bind(listener, this.criteriaBuilder));
 

@@ -31,5 +31,8 @@
         "express": "^4.15.2",
         "mocha": "^3.3.0",
         "sinon": "^2.2.0"
+    },
+    "devDependencies": {
+        "supertest": "latest"
     }
 }
