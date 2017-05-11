@@ -15,8 +15,8 @@ describe('CriteriaBuilder', () => {
 
             expect(criteria.limit).toBe(undefined);
             expect(criteria.skip).toBe(undefined);
-            expect(criteria.where).toBe(undefined);
             expect(criteria.sort).toBe(undefined);
+            expect(criteria.where).toEqual({});
             expect(criteria.includes).toBeAn(Array);
             expect(criteria.includes.length).toBe(0);
         });
