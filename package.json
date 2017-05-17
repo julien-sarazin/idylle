@@ -1,38 +1,40 @@
 {
-    "name": "idylle",
-    "version": "1.6.2",
-    "description": "A micro framework on top of express.",
-    "main": "index.js",
-    "scripts": {
-        "test": "./node_modules/mocha/bin/mocha"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/julien-sarazin/idylle.git"
-    },
-    "keywords": [
-        "framework",
-        "express",
-        "micro-framework",
-        "idylle",
-        "javascript",
-        "es6"
-    ],
-    "author": "Julien Sarazin <sarazin.julien@digipolitan.com>, Julian Farhi <farhi.julian@digipolitan.com>, Julien Brouzes <brouzes.julien@digipolitan.com>, Benoit Briatte <briatte.benoit@digipolitan.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/julien-sarazin/idylle/issues"
-    },
-    "homepage": "https://github.com/julien-sarazin/idylle#readme",
-    "dependencies": {
-        "bluebird": "^3.5.0",
-        "expect": "^1.20.2",
-        "expect.js": "^0.3.1",
-        "express": "^4.15.2",
-        "mocha": "^3.3.0",
-        "sinon": "^2.2.0"
-    },
-    "devDependencies": {
-        "supertest": "latest"
-    }
+  "name": "idylle",
+  "version": "1.6.2",
+  "description": "A micro framework on top of express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julien-sarazin/idylle.git"
+  },
+  "keywords": [
+    "framework",
+    "express",
+    "micro-framework",
+    "idylle",
+    "javascript",
+    "es6"
+  ],
+  "author": "Julien Sarazin <sarazin.julien@digipolitan.com>, Julian Farhi <farhi.julian@digipolitan.com>, Julien Brouzes <brouzes.julien@digipolitan.com>, Benoit Briatte <briatte.benoit@digipolitan.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julien-sarazin/idylle/issues"
+  },
+  "homepage": "https://github.com/julien-sarazin/idylle#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.3.0",
+    "sinon": "^2.2.0",
+    "nyc": "^10.3.2",
+    "supertest": "latest"
+  }
 }

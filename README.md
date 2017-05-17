@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/julien-sarazin/Idylle.svg?branch=master)](https://travis-ci.org/julien-sarazin/Idylle.svg?branch=master)
 [![npm version](https://badge.fury.io/js/idylle.svg)](https://badge.fury.io/js/idylle)
 [![dependencies status](https://david-dm.org/julien-sarazin/Idylle.svg)](https://david-dm.org/julien-sarazin/Idylle.svg)
-
+[![Test Coverage](https://codeclimate.com/github/julien-sarazin/Idylle/coverage.svg)](https://codeclimate.com/github/julien-sarazin/Idylle/coverage)
 A micro framework on top of express.
 
 [Documentation](https://julien-sarazin.github.io/Idylle/)
