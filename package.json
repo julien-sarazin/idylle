@@ -1,6 +1,6 @@
 {
     "name": "idylle",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "description": "A micro framework on top of express.",
     "main": "index.js",
     "scripts": {
