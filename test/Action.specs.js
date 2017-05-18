@@ -88,7 +88,7 @@ describe('Action', () => {
         it('should be callable from a middleware', (done) => {
             const sut = SUT({
                 execute: (context) => {
-                    return Promise.reject('suce');
+                    return Promise.reject();
                 }
             });
 
