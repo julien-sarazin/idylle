@@ -10,10 +10,68 @@ We want the framework to be accessible for junior developers. Actually we have i
 ### Concepts
 
 #### 1. Core
-The Core is the reliable entity that help to glue all components together.
+The `Core` is the reliable entity organizing the server initialization through specific events  
+helping to glue all components together.
+
 
 #### 2. Action
-An Action is 
+An `Action` is basically a `function` compliant with express that must return a `Promise`. Yes that's it.. for the main part :)  
+Here how you can create an action : 
+
+```javascript
+Action({
+    execute: (context) => {
+        return new Promise((resolve, reject) => {
+            resolve("something interesting");
+        }) 
+    }
+})
+```
+
+> *You said it was compliant with express!*
+
+Actually when you build an action, behind the scene you are configuring a class.
+ 
+> *A class?! i'm lost.. it was supposed to be an express middleware..*
+
+Since a function is also a class in javascript, we are using the execute property as 
+a class, then we are adding to this function/class some properties like :
+
+- a `validate` property, which is an array of functions that will receive the request,  
+and must validate the inputs (request's body, queries or params)
+
+- a `criteraBuilder` property which is a function that will transform the request's query into  
+something understandable to your ORM/ODM (later injected into your context as a `criteria` property)
+
+- a `cache` property, that will be used to store returned information from the promise you designed   
+(if configured to do so)
+
+- an `expose()` method that will transform your execute function into a middleware.  
+This middleware will then serialize the request into a context (we'll back to this point later)
+
+This way, you can focus on the business part
+
+
+> *Ok, But why?*
+
+
+Modularity, Reusability and Testability. Let'say you keep coding in an express midlleware all you business logic.
+How can you separate the HTTP part to the real business part?
+
+> *I can use a controller that will be used by my middleware*
+
+Yes, you could, but it means the you will have something very tight to your controller's logic, you
+will have to maintain not one but two layers of code for each business logic of each model.
+
+This tidius job can be removed by using an Action. it takes care of the http part.
+By analysing two things:   
+  
+  1. the state of the given Context
+    When you work in your business logic, you can alter the context state by calling methods in on your context
+    
+  2. the state of the return Promise, if the promise si resolved, a code of range 2xx will be returned  
+    if the promise is rejected, a code of range 3xx, 4xx or 5xx will be returned.
+
 ### Components
 #### 1. Settings
 The `settings` component concerns all information used by the server as configuration.
@@ -47,8 +105,9 @@ Here an example of one of our settings file `settings.development.json`
 }
 ```
 
-As you can see, we use a json file (which again, could be any format you want) that set few information about our server.
-You should be able to init the server's settings like so : 
+As you can see, we use a json file (which again, could be any format you want) that set few information about our server.  
+
+You should be able to init the server's settings like : 
 
 ```javascript
 
@@ -60,6 +119,7 @@ server.on(Core.events.init.settings, (settings) => {
 
 #### 2. Models
 The `models` component concerns all entities related to persistency. This is the place where you connect your ORMS/ODMS like Sequelize or Mongoose and define the Classes/Schema that will be used by your business logic.
+
 ```javascript
 server.on(Core.events.init.models, (models) => { 
     _.merge(models, {
@@ -70,12 +130,22 @@ server.on(Core.events.init.models, (models) => {
 ```
 
 #### 3. Middlewares
-The `middlewares` component is really close to what you would use with a basic express application. It a component that group all integrity validation, like does the requester has provided the required information for the targeted service? does the user is allowed to consume this endpoint ? is he/she authenticated? and so on...
-
+The `middlewares` component is really close to what you would use with a basic express application.  
+It's a component that group all integrity validations, like :
+ 
+```
+  "does the requester has provided the required information for the targeted service? 
+  "does the user is allowed to consume this endpoint?"
+  "is he/she authenticated?"
+  and so on...
+```
+ 
+ Again, to initialize this component, just register to the proper event like:  
 ```javascript
 server.on(Core.events.init.middlewares, (server) => { 
     server.middlewares = {
-        bodyParser: require('body-parser')
+        bodyParser: require('body-parser'),
+        ensureAuthenticated: require('./ensureAuthenticated')
     };
  });
 ```
@@ -106,7 +176,8 @@ server.on(Core.events.init.routes, (server) => {
 
 
 #### 6. CriteriaBuilder
-The `CriteriaBuilder` is a specific component. Its goal is to serialize the express `req.query` into something understandable
+The `CriteriaBuilder` is a specific component.   
+Its goal is to serialize the express `req.query` into something understandable
 for your actions. Meaning, if one action use an ODM like mongoose, its job will be to serialize the query
 to make it compliant with the mongoose ODM. If you decide to change the ODM/ORM for a specific action, you will
 just have to change the criteriaBuilder associated to it.
@@ -116,9 +187,9 @@ The expected format is:
 
 `http://api.com?criteria=<json_formatted_criteria>`
 
-```json
+```javascript
 {
-    criteria: {"limit": 0, "offset": 0, "sort": {}, "includes": []}
+    criteria: '{"limit": 0, "offset": 0, "sort": {}, "includes": []}'
 }
 ```
 > use `limit` to limit the number of results, it must be an integer between 0 and +∞,   
@@ -127,15 +198,15 @@ The expected format is:
 > use `includes` to populate relations of results, it must be an array
 
 ##### `sort` parameter can take multiple forms like
-```json
+```javascript
 {
-    "property": -1 | +1         // -1 means descending, 
-    "dote.nested.property": +1  // means ascending, 
+    "property": -1                 // means descending sort on the key property, 
+    "dotec.nested.property": 1     // means ascending sort on the key property of an object with key "nested" of another object with key "dotec", 
 }
 
 ```
 
-#####`includes` parameter can also take multiple forms like
+##### `includes` parameter can also take multiple forms like
 
 an array of strings
 
@@ -190,11 +261,6 @@ and you can combine styles
     }         
 ]
 ```
-### How ?
-As said at the very beginning, it's a micro framework on top of express. Thus to not break with the most used web framework, that over the years, became a standard in nodejs applications. 
-
-What we are doing with _Idylle_ is setting up components around a **Core** that use `express` as a router.
-
 
 
 ### Usage
