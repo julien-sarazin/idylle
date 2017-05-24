@@ -61,3 +61,5 @@ typings/
 
 # Intellij
 .idea
+
+playground.js
