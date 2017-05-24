@@ -18,8 +18,8 @@ describe('Context', () => {
             token: {some: 'token'}
         };
 
-        const res = {};
-        const sut = new SUT().build(req, res);
+        const FakeCriteriaBuilder = { build : () => {  }};
+        let sut = new SUT(FakeCriteriaBuilder).build(req, {});
 
         expect(sut.data).toEqual(req.body);
         expect(sut.files).toEqual(req.files);
