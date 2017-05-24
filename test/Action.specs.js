@@ -4,12 +4,18 @@ const describe = require('mocha').describe;
 const it = require('mocha').it;
 const request = require('supertest');
 const express = require('express');
+const CriteriaBuilder = require('../lib/CriteriaBuilder');
+
+
+const criteriaBuilder = new CriteriaBuilder();
 
 describe('Action', () => {
     describe('when the execute property is not set', () => {
         it('should throw an exception', () => {
             expect(() => {
-                SUT()
+                SUT({
+                   criteriaBuilder: criteriaBuilder
+                })
             }).toThrow()
         });
     });
@@ -22,9 +28,20 @@ describe('Action', () => {
         })
     });
 
+    describe('when the criteriaBuilder property is not set', () => {
+        it('should throw an exception', () => {
+            expect(() => {
+                SUT({
+                    execute: () => {}
+                })
+            }).toThrow();
+        });
+    });
+
     describe('when an action is built', () => {
         it('should return a function', () => {
             const sut = SUT({
+               criteriaBuilder: criteriaBuilder,
                 execute: () => {
                 }
             });
@@ -35,6 +52,7 @@ describe('Action', () => {
 
         it('should have an expose method', () => {
             const sut = SUT({
+               criteriaBuilder: criteriaBuilder,
                 execute: () => {
                 }
             });
@@ -46,6 +64,7 @@ describe('Action', () => {
         it('should set the cache property to the returned function', () => {
             let cacheOpts = {foo: 'bar'};
             const sut = SUT({
+               criteriaBuilder: criteriaBuilder,
                 execute: () => {
                 }, cache: cacheOpts
             });
@@ -57,6 +76,7 @@ describe('Action', () => {
         it('should have normalized context', () => {
             let cacheOpts = {foo: 'bar'};
             const sut = SUT({
+               criteriaBuilder: criteriaBuilder,
                 execute: (context) => {
                     expect(context.criteria).toNotBe(undefined);
                 }, cache: cacheOpts
@@ -69,6 +89,7 @@ describe('Action', () => {
     describe('when a valid action is exposed', () => {
         it('should be callable from a middleware', (done) => {
             const sut = SUT({
+               criteriaBuilder: criteriaBuilder,
                 execute: (context) => {
                     return Promise.resolve(true);
                 }
@@ -87,6 +108,7 @@ describe('Action', () => {
     describe('when an invalid action is exposed', () => {
         it('should be callable from a middleware', (done) => {
             const sut = SUT({
+                criteriaBuilder: criteriaBuilder,
                 execute: (context) => {
                     return Promise.reject();
                 }
