@@ -43,6 +43,7 @@ markdown_extensions:
   - toc(permalink=true)
 
 pages:
-    - Getting Started: index.md
+    - Idylle: index.md
+    - Getting Started: getting-started.md
     - Architecture: architecture.md
     - Dependencies: dependencies.md
