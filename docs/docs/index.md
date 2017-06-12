@@ -4,7 +4,7 @@
 [![dependencies status](https://david-dm.org/julien-sarazin/Idylle.svg)](https://david-dm.org/julien-sarazin/Idylle.svg)
 [![Test Coverage](https://codeclimate.com/github/julien-sarazin/Idylle/coverage.svg)](https://codeclimate.com/github/julien-sarazin/Idylle/coverage)
 
-## Why another framework ?
+### Why another framework ?
 Original team members behind Idylle come from different backgrounds like Front-End developers, Native Mobile Developers (iOS/Android), NodeJS lovers, PhP, J2EE, ...
 We had different experiences with web framework like RoR, Spring Boot, Loopback, Sails, Meteor, Express..
 
