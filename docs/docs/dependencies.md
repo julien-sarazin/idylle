@@ -158,11 +158,6 @@ class CustomCriteriaBuilder {
   }
 }
 
-!!! warning "Mandatory methods"
-    Please be careful to implement the `default()` and `build()` methods.
-    All action will have a context where the criteria property will come from the build method when called from an HTTP request.   
-    And when one of your action will use another action, the default criteria will be merged to the context passed to the invoked action.
-
 Core.on(Core.events.init.dependencies, () => {
   return {
     critieriaBuilder: CustomCriteriaBuilder
@@ -170,6 +165,11 @@ Core.on(Core.events.init.dependencies, () => {
   }
 });
 ```
+
+!!! warning "Mandatory methods"
+    Please be careful to implement the `default()` and `build()` methods.
+    All action will have a context where the criteria property will come from the build method when called from an HTTP request.   
+    And when one of your action will use another action, the default criteria will be merged to the context passed to the invoked action.
 
 
 #### 2.2 Override per Action
