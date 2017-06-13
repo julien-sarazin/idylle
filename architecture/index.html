@@ -359,6 +359,12 @@
       
       
       
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -515,6 +521,12 @@
       
       
       
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
     </ul>
   
 </nav>
@@ -537,11 +549,13 @@ In terms of architecture Idylle encapsulate en express instance as a server, and
 <h3 id="1-initialization">1. Initialization<a class="headerlink" href="#1-initialization" title="Permanent link">&para;</a></h3>
 <h4 id="1-dependencies">1. Dependencies<a class="headerlink" href="#1-dependencies" title="Permanent link">&para;</a></h4>
 <p>The dependency module regroups all systems that can be override/extended.
-At this time there are 4 dependencies with specific responsabilities :
-  - CriteriaBuilder: Parse and serialize the request's query into something understandable for your persistency.
-  - ErrorHandler: Handle how to respond to a request when an error has been raised during the flow.
-  - ResponseHandler: Handle how to respond to a request when an action has succeeded.
-  - CacheHandler: Handle how to apply the cache strategy  </p>
+At this time there are 4 dependencies with specific responsabilities :</p>
+<ul>
+<li><code>CriteriaBuilder:</code> Parse and serialize the request's query into something understandable for your persistency.</li>
+<li><code>ErrorHandler:</code> Handle how to respond to a request when an error has been raised during the flow.</li>
+<li><code>ResponseHandler:</code> Handle how to respond to a request when an action has succeeded.</li>
+<li><code>CacheHandler:</code> Handle how to apply the cache strategy  </li>
+</ul>
 <h4 id="2-settings">2. Settings<a class="headerlink" href="#2-settings" title="Permanent link">&para;</a></h4>
 <p>The settings module regroups all configuration information.
 Most of the time they are static information stored in JSON or YAML file.</p>
@@ -701,6 +715,22 @@ Here is the default Idylle archetype :
                 
               
               
+                
+                  <h2 id="__comments">Comments</h2>
+                  <div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://julien-sarazin.github.io/Idylle/architecture/";
+    this.page.identifier =
+      "architecture/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "//jsarazin.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
                 
               
             </article>
