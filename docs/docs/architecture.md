@@ -35,8 +35,8 @@ It's a component that regroup all integrity validations, like :
 
  Again, to initialize this component, just register to the proper event like:  
 ```javascript
-server.on(Core.events.init.middlewares, server => {
-    server.middlewares = {
+server.on(Core.events.init.middlewares, app => {
+    app.middlewares = {
         bodyParser: require('body-parser'),
         ensureAuthenticated: require('./ensureAuthenticated')
     };
