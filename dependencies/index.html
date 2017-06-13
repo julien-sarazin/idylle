@@ -298,13 +298,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#includes-parameter" title="includes parameter" class="md-nav__link">
-    includes parameter
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -435,13 +428,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#includes-parameter" title="includes parameter" class="md-nav__link">
-    includes parameter
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -517,7 +503,7 @@
                 <h1 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h1>
 <p>Dependencies are small modules that can be replaced/unplugged/override in Idyille.</p>
 <h2 id="1-criteriabuilder">1. CriteriaBuilder<a class="headerlink" href="#1-criteriabuilder" title="Permanent link">&para;</a></h2>
-<p>The <code>CriteriaBuilder</code> is a specific component. Its goal is to serialize the express <code>req.query</code> into something understandable for your actions. Meaning, if one action use an ODM like mongoose, its job will be to serialize the query to make it compliant with the mongoose ODM. If you decide to change the ODM/ORM for a specific action, you will just have to change the criteriaBuilder associated to it.</p>
+<p>The CriteriaBuilder serialize the express <code>req.query</code> into something understandable for your actions. Meaning, if one action use an ODM like mongoose, its job will be to serialize the query to make it compliant with the mongoose ODM. If you decide to change the ODM/ORM for a specific action, you will just have to change the criteriaBuilder associated to it.</p>
 <p>So far, we provide a default CriteriaBuilder that is capable of serializing any express query into a mongoose query.</p>
 <h3 id="11-how-to-use-it">1.1 How to use it<a class="headerlink" href="#11-how-to-use-it" title="Permanent link">&para;</a></h3>
 <p>The expected format is:
@@ -543,8 +529,8 @@
 </td></tr></table>
 
 <h5 id="where-parameter">where parameter<a class="headerlink" href="#where-parameter" title="Permanent link">&para;</a></h5>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
 <p>use <code>where</code> parameter to filter the result of the resource requested.</p>
 </div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -564,9 +550,10 @@
 </td></tr></table>
 
 <h5 id="sort-parameter">sort parameter<a class="headerlink" href="#sort-parameter" title="Permanent link">&para;</a></h5>
-<blockquote>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
 <p>use <code>sort</code> to sort the results, it must be an object,  </p>
-</blockquote>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -584,9 +571,10 @@
 </td></tr></table>
 
 <h5 id="limit-parameter">limit parameter<a class="headerlink" href="#limit-parameter" title="Permanent link">&para;</a></h5>
-<blockquote>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
 <p>use <code>limit</code> to limit the number of results, it must be an integer between 0 and +∞</p>
-</blockquote>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -600,9 +588,10 @@
 </td></tr></table>
 
 <h5 id="offset-parameter">offset parameter<a class="headerlink" href="#offset-parameter" title="Permanent link">&para;</a></h5>
-<blockquote>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
 <p>use <code>offset</code> to skip a number of entries from the results, it must be an integer between 0 and +∞</p>
-</blockquote>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -615,10 +604,10 @@
 </pre></div>
 </td></tr></table>
 
-<h5 id="includes-parameter">includes parameter<a class="headerlink" href="#includes-parameter" title="Permanent link">&para;</a></h5>
-<blockquote>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
 <p>use <code>includes</code> to populate relations of results. <strong>it must be an array</strong></p>
-</blockquote>
+</div>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">[</span>
