@@ -18,3 +18,24 @@ Meaning you can do a lot within only few hours and the more you will use it, the
 We want the framework to be accessible for junior developers.
 Actually we have interns with less than 6 months of javascript development that work with Idylle every day to develop micro services with reasonable business logic
 and we are constantly asking for feedbacks to bring the most flexible architecture without increasing the usage complexity.
+
+### Roadmap
+
+* [x] Make the `CriteriaBuilder` injectable.
+* [x] Make the `ErrorHandler` injectable.
+* [x] Make the `CacheHandler` injectable.
+* [ ] Update the cache system.
+    * [ ] Update the 'Tag' system with something more powerfull (regex?)
+    * [ ] Add cache meta information on data used by the system
+* [ ] Add a Puggable Messaging system
+    * [ ] Provide default connectors
+        * [ ] AMQP
+        * [ ] MQTT
+    * [ ] Add a messaging router
+* [ ] Unbind **Idylle** and `Express`
+* [ ] Add a command line interface to ease redudant tasklist
+    * [ ] add a model
+        * [ ] auto-generate CRUD
+    * [ ] add an action
+        * [ ] select either or not it has to be exposed.
+    * [ ] add route

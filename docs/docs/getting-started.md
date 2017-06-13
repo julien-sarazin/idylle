@@ -12,8 +12,9 @@ npm install --save lodash
 ```
 
 ## Setting up your server
-The skeleton of an idylle server is nothing more than a `Core` instance. Once instanciated, you just need to start it.
+When you work with Idylle, everything is related to a `Core`. Once instantiated, you just need to start it.
 
+Create a file `index.js` and write this down:
 ```javascript
 const Core = require('idylle').Core;
 const app = new Core();
@@ -62,11 +63,11 @@ app.on(Core.events.init.settings, settings => {
 ## 2. Your first Action
 An action deals with the business part. It means **there is no HTTP concept** in an Action. Your job is to ensure that the given input is correct to avoid unexpected behavior.
 
-!!!Warning
-     The Action **must** have an `execute` property which must be a **function** that must return a `Promise`.
+!!!Warning "Be careful"
+     The Action **must** have an `execute` property which must be a **function** that **must** return a `Promise`.
 
+Create a file `itWorks.js` and write the following code:
 ```javascript
-// FILE: ['itWorks.js']
 module.exports = app => {
   return Action({
     execute: context => {
@@ -75,32 +76,37 @@ module.exports = app => {
   });
 }
 ```
-Once define, the action can be attached to the `core` via the init event `Core.events.init.actions` :
+Once defined, the action can be attached to the `Core` via the init event `Core.events.init.actions` :
 
 ```javascript
-app.on('Core.events.init.actions', app => {
-  app.actions.itWorks = require('./itWorks.js')(app)
+...
+app.on(Core.events.init.actions, app => {
+  app.actions = {
+    itWorks: require('./itWorks.js')(app)
+  };
 });
 ```
-
+That's it!  
+A context will be injected to you action, end what the promise will resolve will be sent to the client.
 
 ## 3. Routing
-You just developed your first Action, which does not do much except returning a promise that will resolve a string `it works!`. Let say you want to expose this action through an HTTP method.  
-You need to register the routing during the `Core.events.init.routes` :
+You just developed your first Action, which does not do much except returning a promise that will resolve a string `"it works!"`. At this point, you could use it in your app through `app.actions.itWorks()`, but no one can reach this action through an HTTP request.  
+
+To do so, you need to register the action's  during the `Core.events.init.routes` :
 
 ```javascript hl_lines="3"
-app.on('Core.events.init.routes', app => {
+app.on(Core.events.init.routes, app => {
   app.server.get('/',
     app.actions.itWorks.expose()
   );
 });
 ```
 
-!!! tip "About the Idylle bundled server"
-    The server is an express `HTTPServer`, meaning the routing   is compliant with **express only**. We are working to bring more flexiblity regarding this part, and let you decide what kind of routing you want to use.
+!!! info "About the Idylle bundled server"
+    The server is an express `HTTPServer`, meaning the routing is compliant with **express only**. We are working to bring more flexiblity regarding this part, and let you decide what kind of routing you want to use.
 
 
-What you need to notice is the `expose()` function used on our action.  
+What you need to notice is the `expose()` function used during the routing.  
 
 Has explained few lines before, an **Action is not related to the HTTP concepts**, but since the routing has to be compliant with express, an Action can **mutate itself into an express middleware**.
 
@@ -109,7 +115,7 @@ Try again in your favorite browser `localhost:8000`. It should now print `"it wo
 
 ## 4. Registering your first model
 
-Idylle does not enforce an ORM/ODM more than other. But for teaching purposes, we're gonna demonstrate how we use Idylle with `mongoose`.
+Idylle does not enforce an ORM/ODM more than other. But for the documentation purposes, we will demonstrate how you can use Idylle with `mongoose`.
 
 ```bash
 npm install --save mongoose
@@ -126,7 +132,7 @@ const TodoSchema = Schema({
   dueDate: Date
 });
 
-return mongoose.model('Todo', FruitSchema);
+return mongoose.model('Todo', TodoSchema);
 ```
 Then as for each part of Idylle, you need to listen on an event to load your models.
 
@@ -136,15 +142,13 @@ app.on(Core.events.init.models, models => {
 });
 ```
 
-
-
 ## 5. Your first CRUD
 Let's create CRUD (Create. Read. Update. Delete.) actions.
-Get the struct by checking out the sample branch of our sample repository:
+You can get the project structure by checking out the crud branch of our sample repository.
 
-```shell
-git clone http://julien-sarazin/idylle-sample.git
-git checkout your-first-crud
+```bash
+git clone https://github.com/julien-sarazin/idylle-sample
+git checkout getting-started-crud
 ```
 
 Your directory structure should look like this.
@@ -153,7 +157,7 @@ Your directory structure should look like this.
 # regroups all your actions
 actions/
   . index.js      
-  . fruits/
+  . todos/
       . index.js
       . create.js
       . list.js
@@ -191,7 +195,7 @@ module.exports = app => {
 }
 ```
 
-What happens here? We used the previously defined `Todo` model in our action. Thanks to the mongoose ODM the method `.create(..)` returns a promise that will resolve if the persistence worked properly.
+What happens here? We used the previously defined `Todo` model in our action. Thanks to the mongoose ODM the method `.create(..)` returns a promise that will be resolved if the operation worked.
 
 
 #### 5.2 Reading
@@ -288,6 +292,6 @@ module.exports = app => {
 ```
 
 
-Now restart your server and you should be able to request your server on 4 routes to Create, Read (one or multiple), Update and Remove Todos.
+Now restart your server and you should be able to request your server on `localhost:8080` on 5 routes to `Create`, `Read` (one or multiple), `Update` and `Remove` Todos.
 
 This getting started is over, thanks to have taken the time to reach the end, i hope it was useful.  
