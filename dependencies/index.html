@@ -657,7 +657,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>can fetch mutilple nested relation on the same depth</p>
+<p>can fetch mutilple nested relation on the same depth
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -672,9 +672,8 @@
     <span class="p">}</span>         
 <span class="p">]</span>
 </pre></div>
-</td></tr></table>
-
-<p>and you can combine styles</p>
+</td></tr></table></p>
+<p>and you can combine styles
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -693,8 +692,7 @@
     <span class="p">}</span>         
 <span class="p">]</span>
 </pre></div>
-</td></tr></table>
-
+</td></tr></table></p>
 <h3 id="2-use-your-own-criteriabuilder">2. Use your own CriteriaBuilder<a class="headerlink" href="#2-use-your-own-criteriabuilder" title="Permanent link">&para;</a></h3>
 <p>There is two options to replace the default CriteriaBuilder bundled with Idylle.</p>
 <h4 id="21-overriding-the-default">2.1 Overriding the default<a class="headerlink" href="#21-overriding-the-default" title="Permanent link">&para;</a></h4>
@@ -745,7 +743,7 @@
 
 <p>This means that all action will have a context with a criteria property built from your built function. And when one of your action will use another action, the default criteria will be merged to the context passed to the invoked action.</p>
 <h4 id="22-override-per-action">2.2 Override per Action<a class="headerlink" href="#22-override-per-action" title="Permanent link">&para;</a></h4>
-<p>When building an action we have seen a simple way to do it:</p>
+<p>When building an action we have seen a simple way to do it:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -757,8 +755,7 @@
 <span class="p">});</span>
 </pre></div>
 </td></tr></table>
-
-<p>Here the only mandatory property has been the <code>execute</code> property. You can also add a <code>criteriaBuilder</code> property. This property will be used only for the targeted action.</p>
+Here the only mandatory property has been the <code>execute</code> property. You can also add a <code>criteriaBuilder</code> property. This property will be used only for the targeted action.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3

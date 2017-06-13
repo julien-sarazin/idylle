@@ -494,7 +494,8 @@ npm install --save lodash
 </td></tr></table>
 
 <h2 id="setting-up-your-server">Setting up your server<a class="headerlink" href="#setting-up-your-server" title="Permanent link">&para;</a></h2>
-<p>The skeleton of an idylle server is nothing more than a <code>Core</code> instance. Once instanciated, you just need to start it.</p>
+<p>When you work with Idylle, everything is related to a <code>Core</code>. Once instantiated, you just need to start it.</p>
+<p>Create a file <code>index.js</code> and write this down:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -503,12 +504,11 @@ npm install --save lodash
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 </pre></div>
-</td></tr></table>
-
+</td></tr></table></p>
 <p>By default the server's listens on <code>127.0.0.1</code> on port <code>8000</code>. If you check in your browser at <code>localhost:8000</code> you should the the famous express's error handling <code>cannot GET /</code>.</p>
 <h2 id="1-configuring-the-server">1. Configuring the server<a class="headerlink" href="#1-configuring-the-server" title="Permanent link">&para;</a></h2>
 <p>When it comes to configure the server, you need to listen on a specific event <code>Core.events.init.settings</code>.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -519,9 +519,8 @@ npm install --save lodash
 <span class="p">});</span>
 </pre></div>
 </td></tr></table>
-
-<p>Be aware that you can listen multiple time on the same event in case you want to split the configuration loading in different step.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+Be aware that you can listen multiple time on the same event in case you want to split the configuration loading in different step.</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -540,8 +539,7 @@ npm install --save lodash
 <span class="c1">// ...</span>
 </pre></div>
 </td></tr></table>
-
-<p>You are even able to return a promise that will make the core system wait your promise is resolved to continue loading.</p>
+You are even able to return a promise that will make the core system wait your promise is resolved to continue loading.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -559,18 +557,17 @@ npm install --save lodash
 <h2 id="2-your-first-action">2. Your first Action<a class="headerlink" href="#2-your-first-action" title="Permanent link">&para;</a></h2>
 <p>An action deals with the business part. It means <strong>there is no HTTP concept</strong> in an Action. Your job is to ensure that the given input is correct to avoid unexpected behavior.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The Action <strong>must</strong> have an <code>execute</code> property which must be a <strong>function</strong> that must return a <code>Promise</code>.</p>
+<p class="admonition-title">Be careful</p>
+<p>The Action <strong>must</strong> have an <code>execute</code> property which must be a <strong>function</strong> that <strong>must</strong> return a <code>Promise</code>.</p>
 </div>
+<p>Create a file <code>itWorks.js</code> and write the following code:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// FILE: [&#39;itWorks.js&#39;]</span>
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">Action</span><span class="p">({</span>
     <span class="nx">execute</span><span class="o">:</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;it works!&#39;</span><span class="p">);</span>
@@ -579,24 +576,30 @@ npm install --save lodash
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
-
-<p>Once define, the action can be attached to the <code>core</code> via the init event <code>Core.events.init.actions</code> :</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+Once defined, the action can be attached to the <code>Core</code> via the init event <code>Core.events.init.actions</code> :</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;Core.events.init.actions&#39;</span><span class="p">,</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">actions</span><span class="p">.</span><span class="nx">itWorks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./itWorks.js&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">)</span>
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">...</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">actions</span><span class="p">,</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">actions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">itWorks</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./itWorks.js&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">)</span>
+  <span class="p">};</span>
 <span class="p">});</span>
 </pre></div>
 </td></tr></table>
-
+That's it!<br />
+A context will be injected to you action, end what the promise will resolve will be sent to the client.</p>
 <h2 id="3-routing">3. Routing<a class="headerlink" href="#3-routing" title="Permanent link">&para;</a></h2>
-<p>You just developed your first Action, which does not do much except returning a promise that will resolve a string <code>it works!</code>. Let say you want to expose this action through an HTTP method.<br />
-You need to register the routing during the <code>Core.events.init.routes</code> :</p>
+<p>You just developed your first Action, which does not do much except returning a promise that will resolve a string <code>&quot;it works!&quot;</code>. At this point, you could use it in your app through <code>app.actions.itWorks()</code>, but no one can reach this action through an HTTP request.  </p>
+<p>To do so, you need to register the action's  during the <code>Core.events.init.routes</code> :</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;Core.events.init.routes&#39;</span><span class="p">,</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">routes</span><span class="p">,</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="nx">app</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span>
 <span class="hll">    <span class="nx">app</span><span class="p">.</span><span class="nx">actions</span><span class="p">.</span><span class="nx">itWorks</span><span class="p">.</span><span class="nx">expose</span><span class="p">()</span>
 </span>  <span class="p">);</span>
@@ -604,21 +607,21 @@ You need to register the routing during the <code>Core.events.init.routes</code>
 </pre></div>
 </td></tr></table>
 
-<div class="admonition tip">
+<div class="admonition info">
 <p class="admonition-title">About the Idylle bundled server</p>
-<p>The server is an express <code>HTTPServer</code>, meaning the routing   is compliant with <strong>express only</strong>. We are working to bring more flexiblity regarding this part, and let you decide what kind of routing you want to use.</p>
+<p>The server is an express <code>HTTPServer</code>, meaning the routing is compliant with <strong>express only</strong>. We are working to bring more flexiblity regarding this part, and let you decide what kind of routing you want to use.</p>
 </div>
-<p>What you need to notice is the <code>expose()</code> function used on our action.  </p>
+<p>What you need to notice is the <code>expose()</code> function used during the routing.  </p>
 <p>Has explained few lines before, an <strong>Action is not related to the HTTP concepts</strong>, but since the routing has to be compliant with express, an Action can <strong>mutate itself into an express middleware</strong>.</p>
-<p>Try again in your favorite browser <code>localhost:8000</code>. It should now print <code>"it works!"</code>.</p>
+<p>Try again in your favorite browser <code>localhost:8000</code>. It should now print <code>&quot;it works!&quot;</code>.</p>
 <h2 id="4-registering-your-first-model">4. Registering your first model<a class="headerlink" href="#4-registering-your-first-model" title="Permanent link">&para;</a></h2>
-<p>Idylle does not enforce an ORM/ODM more than other. But for teaching purposes, we're gonna demonstrate how we use Idylle with <code>mongoose</code>.</p>
+<p>Idylle does not enforce an ORM/ODM more than other. But for the documentation purposes, we will demonstrate how you can use Idylle with <code>mongoose</code>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>npm install --save mongoose
 </pre></div>
 </td></tr></table>
 
 <p>Once installed, you can use it to define your first model:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -634,11 +637,10 @@ You need to register the routing during the <code>Core.events.init.routes</code>
   <span class="nx">dueDate</span><span class="o">:</span> <span class="nb">Date</span>
 <span class="p">});</span>
 
-<span class="k">return</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Todo&#39;</span><span class="p">,</span> <span class="nx">FruitSchema</span><span class="p">);</span>
+<span class="k">return</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Todo&#39;</span><span class="p">,</span> <span class="nx">TodoSchema</span><span class="p">);</span>
 </pre></div>
 </td></tr></table>
-
-<p>Then as for each part of Idylle, you need to listen on an event to load your models.</p>
+Then as for each part of Idylle, you need to listen on an event to load your models.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">models</span><span class="p">,</span> <span class="nx">models</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -649,10 +651,10 @@ You need to register the routing during the <code>Core.events.init.routes</code>
 
 <h2 id="5-your-first-crud">5. Your first CRUD<a class="headerlink" href="#5-your-first-crud" title="Permanent link">&para;</a></h2>
 <p>Let's create CRUD (Create. Read. Update. Delete.) actions.
-Get the struct by checking out the sample branch of our sample repository:</p>
+You can get the project structure by checking out the crud branch of our sample repository.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git clone http://julien-sarazin/idylle-sample.git
-git checkout your-first-crud
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git clone https://github.com/julien-sarazin/idylle-sample
+git checkout getting-started-crud
 </pre></div>
 </td></tr></table>
 
@@ -679,7 +681,7 @@ git checkout your-first-crud
 20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># regroups all your actions
 actions/
   . index.js      
-  . fruits/
+  . todos/
       . index.js
       . create.js
       . list.js
@@ -727,10 +729,10 @@ index.js
 </pre></div>
 </td></tr></table>
 
-<p>What happens here? We used the previously defined <code>Todo</code> model in our action. Thanks to the mongoose ODM the method <code>.create(..)</code> returns a promise that will resolve if the persistence worked properly.</p>
+<p>What happens here? We used the previously defined <code>Todo</code> model in our action. Thanks to the mongoose ODM the method <code>.create(..)</code> returns a promise that will be resolved if the operation worked.</p>
 <h4 id="52-reading">5.2 Reading<a class="headerlink" href="#52-reading" title="Permanent link">&para;</a></h4>
 <p>Go to the file <code>actions/todos/show.js</code> and write this:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -749,9 +751,8 @@ index.js
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
-
-<p>Here we did the same than for the create action. We communicate with the Model module to benefit from ORM features, then executing the action to find one result matching the criteria.</p>
-<p>Go to the file <code>actions/todos/list.js</code> and write this:</p>
+Here we did the same than for the create action. We communicate with the Model module to benefit from ORM features, then executing the action to find one result matching the criteria.</p>
+<p>Go to the file <code>actions/todos/list.js</code> and write this:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -771,8 +772,7 @@ index.js
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
-
-<p>Same than the previous one but with a list.</p>
+Same than the previous one but with a list.</p>
 <h4 id="53-updates">5.3 Updates<a class="headerlink" href="#53-updates" title="Permanent link">&para;</a></h4>
 <p>Go to the file <code>actions/todos/update.js</code> and write this:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -873,7 +873,7 @@ index.js
 </pre></div>
 </td></tr></table>
 
-<p>Now restart your server and you should be able to request your server on 4 routes to Create, Read (one or multiple), Update and Remove Todos.</p>
+<p>Now restart your server and you should be able to request your server on <code>localhost:8080</code> on 5 routes to <code>Create</code>, <code>Read</code> (one or multiple), <code>Update</code> and <code>Remove</code> Todos.</p>
 <p>This getting started is over, thanks to have taken the time to reach the end, i hope it was useful.  </p>
                 
                   
