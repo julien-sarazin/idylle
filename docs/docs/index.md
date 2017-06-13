@@ -9,8 +9,10 @@ Original team members behind Idylle come from different backgrounds like Front-E
 We had different experiences with web framework like RoR, Spring Boot, Loopback, Sails, Meteor, Express..
 
 So far we found that the choices were limited in two directions :  
- - either you choose a pretty big one like sails or loopback, which both have really intresting features but comes with a learning cost, meaning as soon as you want to do something specific that doesn't fit with their philosophy, you will need to have a full understanding of all concepts related to the framework you chose.
- - either you choose a small one, routing based, like express, hapi, restify, which are extremly fexible, where you can do pretty much anything you want, the way you want, but comes with a low productivity ratio since you will have to write much more boilerplate code.
+
+  - either you choose a pretty big one like sails or loopback, which both have really intresting features but comes with a learning cost, meaning as soon as you want to do something specific that doesn't fit with their philosophy, you will need to have a full understanding of all concepts related to the framework you chose.
+
+  - either you choose a small one, routing based, like express, hapi, restify, which are extremly fexible, where you can do pretty much anything you want, the way you want, but comes with a low productivity ratio since you will have to write much more boilerplate code.
 
 Our Goal is to offer to the community a flexible micro framework that have a minimal learning curve with a great productivity ratio.
 Meaning you can do a lot within only few hours and the more you will use it, the more you will be able to do things, do it quickly, **in your way**.

@@ -9,7 +9,7 @@ repo_name: 'julien-sarazin/Idylle'
 repo_url: 'https://github.com/julien-sarazin/Idylle'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2018 Julien Sarazin'
+copyright: 'Copyright &copy; 2016 - 2017'
 
 # Documentation and theme
 theme: 'material'
@@ -25,13 +25,13 @@ extra:
     code: 'Roboto Mono'
   social:
     - type: 'github'
-      link: 'https://github.com/john-doe'
+      link: 'https://github.com/julien-sarazin'
     - type: 'twitter'
-      link: 'https://twitter.com/jonh-doe'
+      link: 'https://twitter.com/julien-sarazin'
     - type: 'linkedin'
-      link: 'https://de.linkedin.com/in/john-doe'
+      link: 'https://de.linkedin.com/in/julien-sarazin'
   disqus: 'jsarazin'
-  
+
 # Extensions
 markdown_extensions:
   - admonition
