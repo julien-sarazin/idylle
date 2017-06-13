@@ -2,7 +2,7 @@
 site_name: 'Idylle'
 site_description: 'Presentation and Documentation of the micro-framework'
 site_author: 'Julien Sarazin'
-site_url: 'https://julien-sarazin.github.io/Idylle/'
+site_url: 'https://julien-sarazin.github.io'
 
 # Repository
 repo_name: 'julien-sarazin/Idylle'
@@ -31,12 +31,7 @@ extra:
     - type: 'linkedin'
       link: 'https://de.linkedin.com/in/john-doe'
   disqus: 'jsarazin'
-
-# Google Analytics
-google_analytics:
-  - 'UA-XXXXXXXX-X'
-  - 'auto'
-
+  
 # Extensions
 markdown_extensions:
   - admonition
