@@ -2,7 +2,7 @@
 Dependencies are small modules that can be replaced/unplugged/override in Idyille.
 
 ## 1. CriteriaBuilder
-The `CriteriaBuilder` is a specific component. Its goal is to serialize the express `req.query` into something understandable for your actions. Meaning, if one action use an ODM like mongoose, its job will be to serialize the query to make it compliant with the mongoose ODM. If you decide to change the ODM/ORM for a specific action, you will just have to change the criteriaBuilder associated to it.
+The CriteriaBuilder serialize the express `req.query` into something understandable for your actions. Meaning, if one action use an ODM like mongoose, its job will be to serialize the query to make it compliant with the mongoose ODM. If you decide to change the ODM/ORM for a specific action, you will just have to change the criteriaBuilder associated to it.
 
 So far, we provide a default CriteriaBuilder that is capable of serializing any express query into a mongoose query.
 
@@ -24,7 +24,7 @@ The expected format is:
 
 ##### where parameter
 
-!!! note
+!!! tips
     use `where` parameter to filter the result of the resource requested.
 
 ```json
@@ -38,7 +38,9 @@ The expected format is:
 ```
 
 ##### sort parameter
-> use `sort` to sort the results, it must be an object,  
+
+!!! tips
+    use `sort` to sort the results, it must be an object,  
 
 ```json
 {
@@ -51,7 +53,9 @@ The expected format is:
 ```
 
 ##### limit parameter
-> use `limit` to limit the number of results, it must be an integer between 0 and +∞
+
+!!! tips
+    use `limit` to limit the number of results, it must be an integer between 0 and +∞
 
 ```json
 {
@@ -63,7 +67,9 @@ The expected format is:
 
 
 ##### offset parameter
-> use `offset` to skip a number of entries from the results, it must be an integer between 0 and +∞
+
+!!! tips
+    use `offset` to skip a number of entries from the results, it must be an integer between 0 and +∞
 
 ```json
 {
@@ -74,7 +80,8 @@ The expected format is:
 ```
 
 ##### includes parameter
-> use `includes` to populate relations of results. **it must be an array**
+!!! tips
+    use `includes` to populate relations of results. **it must be an array**
 
 ```json
 [
@@ -151,6 +158,11 @@ class CustomCriteriaBuilder {
   }
 }
 
+!!! warning "Mandatory methods"
+    Please be careful to implement the `default()` and `build()` methods.
+    All action will have a context where the criteria property will come from the build method when called from an HTTP request.   
+    And when one of your action will use another action, the default criteria will be merged to the context passed to the invoked action.
+
 Core.on(Core.events.init.dependencies, () => {
   return {
     critieriaBuilder: CustomCriteriaBuilder
@@ -159,7 +171,6 @@ Core.on(Core.events.init.dependencies, () => {
 });
 ```
 
-This means that all action will have a context with a criteria property built from your built function. And when one of your action will use another action, the default criteria will be merged to the context passed to the invoked action.
 
 #### 2.2 Override per Action
 
