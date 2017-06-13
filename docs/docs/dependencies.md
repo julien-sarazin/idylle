@@ -24,7 +24,7 @@ The expected format is:
 
 ##### where parameter
 
-!!! tips
+!!! tip
     use `where` parameter to filter the result of the resource requested.
 
 ```json
@@ -39,7 +39,7 @@ The expected format is:
 
 ##### sort parameter
 
-!!! tips
+!!! tip
     use `sort` to sort the results, it must be an object,  
 
 ```json
@@ -54,7 +54,7 @@ The expected format is:
 
 ##### limit parameter
 
-!!! tips
+!!! tip
     use `limit` to limit the number of results, it must be an integer between 0 and +∞
 
 ```json
@@ -68,7 +68,7 @@ The expected format is:
 
 ##### offset parameter
 
-!!! tips
+!!! tip
     use `offset` to skip a number of entries from the results, it must be an integer between 0 and +∞
 
 ```json
@@ -81,7 +81,7 @@ The expected format is:
 
 ##### includes parameter
 
-!!! tips
+!!! tip
     use `includes` to populate relations of results. **it must be an array**
 
 ```json
