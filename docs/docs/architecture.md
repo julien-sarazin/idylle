@@ -2,7 +2,7 @@
 Idylle is a micro-framework on top of express (so far).
 
 ## Life cycle
-![Screenshot](../images/architecture-life-cycle.png)
+![Screenshot](https://github.com/julien-sarazin/Idylle/raw/gh-pages/images/architecture-life-cycle.png)
 
 
 ## Project layout
@@ -42,5 +42,3 @@ Idylle is a micro-framework on top of express (so far).
     . .gitignore
     . .....
 ```
-
-
