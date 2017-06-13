@@ -706,7 +706,12 @@
 18
 19
 20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">Core</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;idylle&#39;</span><span class="p">).</span><span class="nx">Core</span><span class="p">;</span>
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">Core</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;idylle&#39;</span><span class="p">).</span><span class="nx">Core</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Core</span><span class="p">();</span>
 
 <span class="kr">class</span> <span class="nx">CustomCriteriaBuilder</span> <span class="p">{</span>
@@ -721,6 +726,11 @@
   <span class="p">}</span>
 <span class="p">}</span>
 
+<span class="o">!!!</span> <span class="nx">warning</span> <span class="s2">&quot;Mandatory methods&quot;</span>
+    <span class="nx">Please</span> <span class="nx">be</span> <span class="nx">careful</span> <span class="nx">to</span> <span class="nx">implement</span> <span class="nx">the</span> <span class="sb">`default()`</span> <span class="nx">and</span> <span class="sb">`build()`</span> <span class="nx">methods</span><span class="p">.</span>
+    <span class="nx">All</span> <span class="nx">action</span> <span class="nx">will</span> <span class="nx">have</span> <span class="nx">a</span> <span class="nx">context</span> <span class="nx">where</span> <span class="nx">the</span> <span class="nx">criteria</span> <span class="nx">property</span> <span class="nx">will</span> <span class="nx">come</span> <span class="nx">from</span> <span class="nx">the</span> <span class="nx">build</span> <span class="nx">method</span> <span class="nx">when</span> <span class="nx">called</span> <span class="nx">from</span> <span class="nx">an</span> <span class="nx">HTTP</span> <span class="nx">request</span><span class="p">.</span>   
+    <span class="nx">And</span> <span class="nx">when</span> <span class="nx">one</span> <span class="k">of</span> <span class="nx">your</span> <span class="nx">action</span> <span class="nx">will</span> <span class="nx">use</span> <span class="nx">another</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">the</span> <span class="k">default</span> <span class="nx">criteria</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">merged</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">context</span> <span class="nx">passed</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">invoked</span> <span class="nx">action</span><span class="p">.</span>
+
 <span class="nx">Core</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">dependencies</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">critieriaBuilder</span><span class="o">:</span> <span class="nx">CustomCriteriaBuilder</span>
@@ -730,7 +740,6 @@
 </pre></div>
 </td></tr></table>
 
-<p>This means that all action will have a context with a criteria property built from your built function. And when one of your action will use another action, the default criteria will be merged to the context passed to the invoked action.</p>
 <h4 id="22-override-per-action">2.2 Override per Action<a class="headerlink" href="#22-override-per-action" title="Permanent link">&para;</a></h4>
 <p>When building an action we have seen a simple way to do it:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
