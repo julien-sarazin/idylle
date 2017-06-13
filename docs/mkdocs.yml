@@ -30,6 +30,7 @@ extra:
       link: 'https://twitter.com/jonh-doe'
     - type: 'linkedin'
       link: 'https://de.linkedin.com/in/john-doe'
+  disqus: 'jsarazin'
 
 # Google Analytics
 google_analytics:

@@ -11,10 +11,11 @@ Around this server, it defines few modules with specific responsabilities.
 #### 1. Dependencies
 The dependency module regroups all systems that can be override/extended.
 At this time there are 4 dependencies with specific responsabilities :
-  - CriteriaBuilder: Parse and serialize the request's query into something understandable for your persistency.
-  - ErrorHandler: Handle how to respond to a request when an error has been raised during the flow.
-  - ResponseHandler: Handle how to respond to a request when an action has succeeded.
-  - CacheHandler: Handle how to apply the cache strategy  
+
+  - `CriteriaBuilder:` Parse and serialize the request's query into something understandable for your persistency.
+  - `ErrorHandler:` Handle how to respond to a request when an error has been raised during the flow.
+  - `ResponseHandler:` Handle how to respond to a request when an action has succeeded.
+  - `CacheHandler:` Handle how to apply the cache strategy  
 
 #### 2. Settings
 The settings module regroups all configuration information.
