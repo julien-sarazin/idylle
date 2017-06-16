@@ -6,8 +6,13 @@ const request = require('supertest');
 const express = require('express');
 const CriteriaBuilder = require('../lib/CriteriaBuilder');
 
-
+const responseHandler = require('../lib/ResponseHandler');
+const errorHandler = require('../lib/ErrorHandler');
 const criteriaBuilder = new CriteriaBuilder();
+
+
+SUT.responseHandler = responseHandler;
+SUT.errorHandler = errorHandler;
 
 describe('Action', () => {
     describe('when the execute property is not set', () => {
