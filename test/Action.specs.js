@@ -101,7 +101,7 @@ describe('Action', () => {
             });
 
             const collab = express();
-            collab.use((req, res, next) => {res.submit = res.send; next();}, sut.expose());
+            collab.use(sut.expose());
 
             request(collab)
                 .get('/')
@@ -120,7 +120,7 @@ describe('Action', () => {
             });
 
             const collab = express();
-            collab.use((req, res, next) => {res.error = (err) => {res.status(500).send()}; next();}, sut.expose());
+            collab.use(sut.expose());
 
             request(collab)
                 .get('/')
