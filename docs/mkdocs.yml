@@ -1,0 +1,58 @@
+# Project information
+site_name: 'Idylle'
+site_description: 'Presentation and Documentation of the micro-framework'
+site_author: 'Julien Sarazin'
+site_url: 'https://julien-sarazin.github.io/Idylle/'
+
+# Repository
+repo_name: 'julien-sarazin/Idylle'
+repo_url: 'https://github.com/julien-sarazin/Idylle'
+
+# Copyright
+copyright: 'Copyright &copy; 2016 - 2017'
+
+# Documentation and theme
+theme: 'material'
+
+# Options
+extra:
+  logo: 'images/logo.svg'
+  palette:
+    primary: 'Pink'
+    accent: 'Amber'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  social:
+    - type: 'github'
+      link: 'https://github.com/julien-sarazin'
+    - type: 'twitter'
+      link: 'https://twitter.com/julien-sarazin'
+    - type: 'linkedin'
+      link: 'https://de.linkedin.com/in/julien-sarazin'
+  disqus: 'idylle-1'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite(guess_lang=false,linenums=true)
+  - toc(permalink=true)
+  - pymdownx.arithmatex
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tilde
+
+pages:
+    - Introduction: index.md
+    - Getting Started: getting-started.md
+    - Architecture: architecture.md
+    - Dependencies: dependencies.md

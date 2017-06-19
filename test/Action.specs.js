@@ -6,8 +6,13 @@ const request = require('supertest');
 const express = require('express');
 const CriteriaBuilder = require('../lib/CriteriaBuilder');
 
-
+const responseHandler = require('../lib/ResponseHandler');
+const errorHandler = require('../lib/ErrorHandler');
 const criteriaBuilder = new CriteriaBuilder();
+
+
+SUT.responseHandler = responseHandler;
+SUT.errorHandler = errorHandler;
 
 describe('Action', () => {
     describe('when the execute property is not set', () => {
@@ -96,7 +101,7 @@ describe('Action', () => {
             });
 
             const collab = express();
-            collab.use((req, res, next) => {res.submit = res.send; next();}, sut.expose());
+            collab.use(sut.expose());
 
             request(collab)
                 .get('/')
@@ -115,7 +120,7 @@ describe('Action', () => {
             });
 
             const collab = express();
-            collab.use((req, res, next) => {res.error = (err) => {res.status(500).send()}; next();}, sut.expose());
+            collab.use(sut.expose());
 
             request(collab)
                 .get('/')
