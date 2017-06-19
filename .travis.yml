@@ -17,10 +17,8 @@ deploy:
     tags: true
     repo: julien-sarazin/idylle
 
-addons:
-  code_climate:
-    repo_token: e8c7bbeb5b50dcbf3e658bbb29d83ae2cf9122628e2cc83e29050acc31b645ef
-
 after_success:
+  - npm install -g istanbul
+  - npm run coverage
   - npm install -g codeclimate-test-reporter
   - codeclimate-test-reporter < coverage/lcov.info
