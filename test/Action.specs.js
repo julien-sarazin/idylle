@@ -109,7 +109,6 @@ describe('Action', () => {
         });
     });
 
-
     describe('when an invalid action is exposed', () => {
         it('should be callable from a middleware', (done) => {
             const sut = SUT({
