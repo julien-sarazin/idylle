@@ -18,8 +18,8 @@ theme: 'material'
 extra:
   logo: 'images/logo.svg'
   palette:
-    primary: 'Pink'
-    accent: 'Amber'
+    primary: 'Teal'
+    accent: 'Pink'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
@@ -29,7 +29,7 @@ extra:
     - type: 'twitter'
       link: 'https://twitter.com/julien-sarazin'
     - type: 'linkedin'
-      link: 'https://de.linkedin.com/in/julien-sarazin'
+      link: 'https://de.linkedin.com/in/julien-sarazin-25b89047'
   disqus: 'idylle-1'
 
 # Extensions

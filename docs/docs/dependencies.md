@@ -200,7 +200,7 @@ return Action({
 
 ## 2. ErrorHandler
 
-This ErrorHandler is in charge of responding to clients when an error occures. Generally you want to hide this error in production but need the stack trace in developpement.
+The `ErrorHandler` is in charge of responding to clients when an error occurs. Generally you want to hide this error in production but need the stack trace in developpement.
 
 That is what the default ErrorHandler does on Idylle.
 Here the code :
@@ -229,7 +229,7 @@ function reason(error) {
 ### 2.1 Overriding the ErrorHandler
 You can develop and plug your own error handler.
 
-On the dependency initialization events: `Core.events.init.dependencies` you can override the ErrorHandler.
+On the dependency initialization events: `Core.events.init.dependencies` you can override the `ErrorHandler`.
 
 Let's say you want to modify the behavior of the ErrorHandler to return an error 500 and use the property `message` of your errors.
 
@@ -243,5 +243,62 @@ app.on(Core.events.init.dependencies, () => {
         return res.status(500).send(error.message);
     }
   };
-})
+});
+...
+```
+
+## 3. ResponseHandler
+The `ResponseHandler` is used behind the scene the respond to HTTP request. It analyzes the state of the context and the data returned by an action to decide what HTTP code to use and what data to send in the request's body.
+
+Here the default `ResponseHandler` provided by Idylle: 
+
+```javascript
+module.exports = (req, res, context, result) => {
+    if (!context || !context.meta)
+        return res.send(result);
+
+    if (context.meta.state === 'noContent')
+        return res.status(204).send();
+
+    if (context.meta.state === 'partial')
+        return res.status(206).send(result);
+
+    if (context.meta.state === 'stream')
+        return res.download(context.meta.path);
+
+    if (context.meta.state === 'redirect') {
+        const code = context.meta.code || 302;
+        return res.status(code).send(context.meta.url);
+    }
+
+    if (context.meta.state === 'created') {
+        if (context.meta.resourceURI)
+            res.header('location', context.meta.resourceURI);
+
+        return res.status(201).send();
+    }
+
+    return res.send(result);
+};
+```
+
+As you can see, nothing magical happens here. You can change the context state by calling methods like `context.created(resource)`, or `context.noContent()` to update context's state. Then, once the action resolve the promise, depending on the state, the default `ResponseHandler` will use the data to respond to the HTTP request.
+
+### 3.1 Overriding the ResponseHandler
+You can develop and plug your own response handler.
+
+On the dependency initialization events: `Core.events.init.dependencies` you can override the `ResponseHandler`.
+
+```javascript
+const Core = require('idylle').Core;
+const app = new Core();
+
+app.on(Core.events.init.dependencies, () => {
+  return {
+    responseHandler:  (req, res, context, result) => {
+        return res.send(result);
+    }
+  };
+});
+...
 ```
