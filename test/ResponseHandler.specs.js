@@ -35,7 +35,7 @@ describe('ResponseHandler', () => {
                 // Setup
                 const context = {
                     meta: {
-                        state: 'noContent'
+                        status: 'noContent'
                     }
                 };
                 const SUT = ResponseHandler.bind(ResponseHandler, req, res, context);

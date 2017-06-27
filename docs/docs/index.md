@@ -26,6 +26,7 @@ and we are constantly asking for feedbacks to bring the most flexible architectu
 * [x] Make the `CriteriaBuilder` injectable.
 * [x] Make the `ErrorHandler` injectable.
 * [x] Make the `CacheHandler` injectable.
+* [x] Make the `ResponseHandler' injectable.
 * [ ] Update the cache system.
     * [ ] Update the 'Tag' system with something more powerfull (regex?)
     * [ ] Add cache meta information on data used by the system
@@ -35,7 +36,8 @@ and we are constantly asking for feedbacks to bring the most flexible architectu
         * [ ] MQTT
     * [ ] Add a messaging router
 * [ ] Unbind **Idylle** and `Express`
-* [ ] Add a command line interface to ease redudant tasklist
+* [ ] Add a command line interface to ease redudant tasks
+    * [ ] create a project
     * [ ] add a model
         * [ ] auto-generate CRUD
     * [ ] add an action
