@@ -238,8 +238,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setting-up-your-server" title="Setting up your server" class="md-nav__link">
-    Setting up your server
+  <a href="#the-quick-start" title="The Quick start" class="md-nav__link">
+    The Quick start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-your-server-from-scratch" title="Setting up your server from scratch" class="md-nav__link">
+    Setting up your server from scratch
   </a>
   
 </li>
@@ -387,8 +394,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setting-up-your-server" title="Setting up your server" class="md-nav__link">
-    Setting up your server
+  <a href="#the-quick-start" title="The Quick start" class="md-nav__link">
+    The Quick start
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-your-server-from-scratch" title="Setting up your server from scratch" class="md-nav__link">
+    Setting up your server from scratch
   </a>
   
 </li>
@@ -505,7 +519,20 @@ npm install --save lodash
 </pre></div>
 </td></tr></table>
 
-<h2 id="setting-up-your-server">Setting up your server<a class="headerlink" href="#setting-up-your-server" title="Permanent link">&para;</a></h2>
+<h2 id="the-quick-start">The Quick start<a class="headerlink" href="#the-quick-start" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ npm install -g idylle-cli
+$ npm new &lt;my_project&gt;
+$ <span class="nb">cd</span> my_project
+$ npm i
+$ npm start
+</pre></div>
+</td></tr></table>
+
+<h2 id="setting-up-your-server-from-scratch">Setting up your server from scratch<a class="headerlink" href="#setting-up-your-server-from-scratch" title="Permanent link">&para;</a></h2>
 <p>When you work with Idylle, everything is related to a <code>Core</code>. Once instantiated, you just need to start it.</p>
 <p>Create a file <code>index.js</code> and write this down:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -517,7 +544,7 @@ npm install --save lodash
 <span class="nx">app</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 </pre></div>
 </td></tr></table></p>
-<p>By default the server's listens on <code>127.0.0.1</code> on port <code>8000</code>. If you check in your browser at <code>localhost:8000</code> you should the the famous express's error handling <code>cannot GET /</code>.</p>
+<p>By default the server's listens on <code>0.0.0.0</code> on port <code>8000</code>. If you check in your browser at <code>localhost:8000</code> you should the the famous express's error handling <code>cannot GET /</code>.</p>
 <h2 id="1-configuring-the-server">1. Configuring the server<a class="headerlink" href="#1-configuring-the-server" title="Permanent link">&para;</a></h2>
 <p>When it comes to configure the server, you need to listen on a specific event <code>Core.events.init.settings</code>.</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
