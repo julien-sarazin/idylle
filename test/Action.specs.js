@@ -19,7 +19,7 @@ describe('Action', () => {
         it('should throw an exception', () => {
             expect(() => {
                 SUT({
-                   criteriaBuilder: criteriaBuilder
+                    criteriaBuilder: criteriaBuilder
                 })
             }).toThrow()
         });
@@ -37,7 +37,8 @@ describe('Action', () => {
         it('should throw an exception', () => {
             expect(() => {
                 SUT({
-                    execute: () => {}
+                    execute: () => {
+                    }
                 })
             }).toThrow();
         });
@@ -46,7 +47,7 @@ describe('Action', () => {
     describe('when an action is built', () => {
         it('should return a function', () => {
             const sut = SUT({
-               criteriaBuilder: criteriaBuilder,
+                criteriaBuilder: criteriaBuilder,
                 execute: () => {
                 }
             });
@@ -57,7 +58,7 @@ describe('Action', () => {
 
         it('should have an expose method', () => {
             const sut = SUT({
-               criteriaBuilder: criteriaBuilder,
+                criteriaBuilder: criteriaBuilder,
                 execute: () => {
                 }
             });
@@ -69,7 +70,7 @@ describe('Action', () => {
         it('should set the cache property to the returned function', () => {
             let cacheOpts = {foo: 'bar'};
             const sut = SUT({
-               criteriaBuilder: criteriaBuilder,
+                criteriaBuilder: criteriaBuilder,
                 execute: () => {
                 }, cache: cacheOpts
             });
@@ -81,7 +82,7 @@ describe('Action', () => {
         it('should have normalized context', () => {
             let cacheOpts = {foo: 'bar'};
             const sut = SUT({
-               criteriaBuilder: criteriaBuilder,
+                criteriaBuilder: criteriaBuilder,
                 execute: (context) => {
                     expect(context.criteria).toNotBe(undefined);
                 }, cache: cacheOpts
@@ -94,7 +95,7 @@ describe('Action', () => {
     describe('when a valid action is exposed', () => {
         it('should be callable from a middleware', (done) => {
             const sut = SUT({
-               criteriaBuilder: criteriaBuilder,
+                criteriaBuilder: criteriaBuilder,
                 execute: (context) => {
                     return Promise.resolve(true);
                 }
@@ -126,4 +127,41 @@ describe('Action', () => {
                 .expect(500, done)
         });
     });
+
+    describe('when a set of rules is attached to an action', () => {
+        it('should share the same context', (done) => {
+            let given_context;
+
+            const sut = SUT({
+                criteriaBuilder: criteriaBuilder,
+                rules: [
+                    context => given_context = context
+                ],
+                execute: (context) => {
+                    return context === given_context ? Promise.resolve() : Promise.reject()
+                }
+            });
+
+            sut({})
+                .should.be.fulfilled
+                .and.notify(done)
+        });
+
+
+        it('should not execute the action if at least one of the rule is violated', (done) => {
+            const sut = SUT({
+                criteriaBuilder: criteriaBuilder,
+                rules: [
+                    context => false
+                ],
+                execute: (context) => {
+                    return Promise.resolve();
+                }
+            });
+
+            sut({})
+                .should.be.rejected
+                .and.notify(done)
+        })
+    })
 });
