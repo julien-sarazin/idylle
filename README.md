@@ -12,27 +12,24 @@ To know more about the Idylle, our choices and concepts related to it, you can c
 ### Quick Usage
 1. Setup a vanilla server
 
-```javascript
-const Core      = require('idylle').Core;
-const server    = new Core();
-
-// Launching server.
-server.start(); // default port is 8080
-
-// Exposing the server allowing tests.
-module.exports = server;
+```bash
+$ npm install -g idylle-cli
+$ npm new <my_project>
+$ cd my_project
+$ npm i
+$ npm start
 ```
 
-2. Setting up components
+2. Setting up components `index.js`
 
 
 ```javascript
 // Initializing Components.
-server.on(Core.events.init.settings, (settings) => { settings.port = 3000; });
-server.on(Core.events.init.models, (models) => { ... });
-server.on(Core.events.init.middlewares, (server) => { ... });
-server.on(Core.events.init.actions, (server) => { ... });
-server.on(Core.events.init.routes, (server) => { ... });
+server.on(Core.events.init.settings,    settings => { settings.port = 3000; });
+server.on(Core.events.init.models,      models => { ... });
+server.on(Core.events.init.middlewares, server => { ... });
+server.on(Core.events.init.actions,     server => { ... });
+server.on(Core.events.init.routes,      server => { ... });
 ```
 
 
@@ -40,11 +37,11 @@ server.on(Core.events.init.routes, (server) => { ... });
 
 ```javascript
 // Starting phase.
-server.on(Core.events.booting, (server) => {...});
-server.on(Core.events.booting, (server) => {...});          
+server.on(Core.events.booting, server => {...});
+server.on(Core.events.booting, server => {...});          
 
 // Post Start.
-server.on(Core.events.started, (server) => {
+server.on(Core.events.started, server => {
     console.log(`Server listening on port ${server.settings.port}`);
 });
 ```

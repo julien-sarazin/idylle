@@ -1,6 +1,6 @@
 {
   "name": "idylle",
-  "version": "1.10.4",
+  "version": "1.11.0",
   "description": "A micro framework on top of express.",
   "main": "index.js",
   "scripts": {
@@ -31,11 +31,13 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "chai": "^4.0.2",
+    "chai-as-promised": "^7.1.1",
     "expect": "^1.20.2",
     "expect.js": "^0.3.1",
     "mocha": "^3.3.0",
-    "sinon": "^2.2.0",
     "nyc": "^10.3.2",
+    "sinon": "^2.2.0",
     "supertest": "latest"
   }
 }

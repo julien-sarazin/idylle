@@ -11,7 +11,17 @@ npm install --save express
 npm install --save lodash
 ```
 
-## Setting up your server
+## The Quick start
+
+```bash
+$ npm install -g idylle-cli
+$ npm new <my_project>
+$ cd my_project
+$ npm i
+$ npm start
+```
+
+## Setting up your server from scratch
 When you work with Idylle, everything is related to a `Core`. Once instantiated, you just need to start it.
 
 Create a file `index.js` and write this down:
@@ -22,7 +32,7 @@ const app = new Core();
 app.start();
 ```
 
-By default the server's listens on `127.0.0.1` on port `8000`. If you check in your browser at `localhost:8000` you should the the famous express's error handling `cannot GET /`.
+By default the server's listens on `0.0.0.0` on port `8000`. If you check in your browser at `localhost:8000` you should the the famous express's error handling `cannot GET /`.
 
 ## 1. Configuring the server
 When it comes to configure the server, you need to listen on a specific event `Core.events.init.settings`.
