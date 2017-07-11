@@ -152,7 +152,7 @@ describe('Action', () => {
             const sut = SUT({
                 criteriaBuilder: criteriaBuilder,
                 rules: [
-                    context => false
+                    context => Promise.reject()
                 ],
                 execute: (context) => {
                     return Promise.resolve();
