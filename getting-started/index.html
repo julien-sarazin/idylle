@@ -231,15 +231,35 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" title="Installation" class="md-nav__link">
-    Installation
+  <a href="#the-quickest-way" title="The Quickest way" class="md-nav__link">
+    The Quickest way
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-project" title="Setting up the project" class="md-nav__link">
+    Setting up the project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-resource-to-your-app" title="Adding a new Resource to your app" class="md-nav__link">
+    Adding a new Resource to your app
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-quick-start" title="The Quick start" class="md-nav__link">
-    The Quick start
+  <a href="#the-other-way" title="The other way" class="md-nav__link">
+    The other way
   </a>
   
 </li>
@@ -247,6 +267,20 @@
         <li class="md-nav__item">
   <a href="#setting-up-your-server-from-scratch" title="Setting up your server from scratch" class="md-nav__link">
     Setting up your server from scratch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archetype-concepts" title="Archetype concepts" class="md-nav__link">
+    Archetype concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-everything-manually" title="Configuring everything manually" class="md-nav__link">
+    Configuring everything manually
   </a>
   
 </li>
@@ -387,15 +421,35 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" title="Installation" class="md-nav__link">
-    Installation
+  <a href="#the-quickest-way" title="The Quickest way" class="md-nav__link">
+    The Quickest way
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-project" title="Setting up the project" class="md-nav__link">
+    Setting up the project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-resource-to-your-app" title="Adding a new Resource to your app" class="md-nav__link">
+    Adding a new Resource to your app
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-quick-start" title="The Quick start" class="md-nav__link">
-    The Quick start
+  <a href="#the-other-way" title="The other way" class="md-nav__link">
+    The other way
   </a>
   
 </li>
@@ -403,6 +457,20 @@
         <li class="md-nav__item">
   <a href="#setting-up-your-server-from-scratch" title="Setting up your server from scratch" class="md-nav__link">
     Setting up your server from scratch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archetype-concepts" title="Archetype concepts" class="md-nav__link">
+    Archetype concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-everything-manually" title="Configuring everything manually" class="md-nav__link">
+    Configuring everything manually
   </a>
   
 </li>
@@ -506,29 +574,35 @@
                 
                 <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
 <p>Follow the path to quickly dive into the micro framework.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>npm init
-
-npm install --save idylle
-npm install --save express
-npm install --save lodash
-</pre></div>
-</td></tr></table>
-
-<h2 id="the-quick-start">The Quick start<a class="headerlink" href="#the-quick-start" title="Permanent link">&para;</a></h2>
+<h2 id="the-quickest-way">The Quickest way<a class="headerlink" href="#the-quickest-way" title="Permanent link">&para;</a></h2>
+<h3 id="setting-up-the-project">Setting up the project<a class="headerlink" href="#setting-up-the-project" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ npm install -g idylle-cli
-$ npm new &lt;my_project&gt;
+$ idylle new &lt;my_project&gt;
 $ <span class="nb">cd</span> my_project
 $ npm i
 $ npm start
+</pre></div>
+</td></tr></table>
+
+<h3 id="adding-a-new-resource-to-your-app">Adding a new Resource to your app<a class="headerlink" href="#adding-a-new-resource-to-your-app" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ idylle add &lt;resource&gt;
+</pre></div>
+</td></tr></table>
+
+<h2 id="the-other-way">The other way<a class="headerlink" href="#the-other-way" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ npm init
+
+$ npm install --save idylle
+$ npm install --save express
+$ npm install --save lodash
 </pre></div>
 </td></tr></table>
 
@@ -545,6 +619,64 @@ $ npm start
 </pre></div>
 </td></tr></table></p>
 <p>By default the server's listens on <code>0.0.0.0</code> on port <code>8000</code>. If you check in your browser at <code>localhost:8000</code> you should the the famous express's error handling <code>cannot GET /</code>.</p>
+<h2 id="archetype-concepts">Archetype concepts<a class="headerlink" href="#archetype-concepts" title="Permanent link">&para;</a></h2>
+<p>In Idylle, the <code>Archetype</code> concept allows you to configure your server by following specific directory structure.</p>
+<p>The default archetype in Idylle looks like this :</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>project/
+    actions/      &lt;------- domain related functions, controllers, ...
+    boot/         &lt;------- database connections, fixtures, ...
+    cache/        &lt;------- cache system definition/initialization
+    middlewares/  &lt;------- generic middleware layers (body-parser, loggers, cors, mutler, ...)
+    models/       &lt;------- ORM/ODM models configuration
+    routes/       &lt;------- HTTP routing configuration
+    settings/     &lt;------- server configuration (port, tokens, secrets, hosts, ...)
+</pre></div>
+</td></tr></table>
+
+<p>This way, you don't need any <code>index.js</code> files. The framework will load all module injecting your app in each file.
+For example, let's say you have a Resource <code>Todo</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// project/models/Todo.js</span>
+<span class="kr">const</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongoose&#39;</span><span class="p">);</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;Todo&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">dueDate</span><span class="o">:</span> <span class="nb">Date</span><span class="p">});</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// project/actions/todos/create.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">Todo</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Todo</span><span class="p">;</span> <span class="c1">// Here the model becomes available as soon as it is created in the &quot;models&quot; directory.</span>
+    <span class="k">return</span> <span class="nx">Action</span><span class="p">({</span><span class="nx">execute</span><span class="o">:</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="nx">Todo</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// project/routes/todos.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span>
+    <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">app</span><span class="p">.</span><span class="nx">actions</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">create</span><span class="p">.</span><span class="nx">expose</span><span class="p">());</span> <span class="c1">// Here actions become available as soon as they are created in the &quot;actions&quot; directory/</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="configuring-everything-manually">Configuring everything manually<a class="headerlink" href="#configuring-everything-manually" title="Permanent link">&para;</a></h2>
+<p>If the default archetype isn't something you like, you are still able to configure how your modules will interact with each others.
+Basically Idylle is just the glue that help modules to stick together :)</p>
 <h2 id="1-configuring-the-server">1. Configuring the server<a class="headerlink" href="#1-configuring-the-server" title="Permanent link">&para;</a></h2>
 <p>When it comes to configure the server, you need to listen on a specific event <code>Core.events.init.settings</code>.</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -623,7 +755,7 @@ Once defined, the action can be attached to the <code>Core</code> via the init e
 5
 6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">...</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">init</span><span class="p">.</span><span class="nx">actions</span><span class="p">,</span> <span class="nx">app</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">app</span><span class="p">.</span><span class="nx">actions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">actions</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">// here you could call your actions &quot;app.controllers&quot;</span>
     <span class="nx">itWorks</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./itWorks.js&#39;</span><span class="p">)(</span><span class="nx">app</span><span class="p">)</span>
   <span class="p">};</span>
 <span class="p">});</span>

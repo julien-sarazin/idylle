@@ -543,13 +543,13 @@
                 <h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
 <p>Idylle is a micro-framework on top of express (so far).
 In terms of architecture Idylle encapsulate en express instance as a server, and use it as default HTTP server and a router.</p>
-<p>Around this server, it defines few modules with specific responsabilities.</p>
+<p>Around this server, it defines few modules with specific responsibilities.</p>
 <h2 id="life-cycle">Life cycle<a class="headerlink" href="#life-cycle" title="Permanent link">&para;</a></h2>
 <p><img alt="Screenshot" src="https://github.com/julien-sarazin/Idylle/raw/gh-pages/images/architecture-life-cycle.png" /></p>
 <h3 id="1-initialization">1. Initialization<a class="headerlink" href="#1-initialization" title="Permanent link">&para;</a></h3>
 <h4 id="1-dependencies">1. Dependencies<a class="headerlink" href="#1-dependencies" title="Permanent link">&para;</a></h4>
 <p>The dependency module regroups all systems that can be override/extended.
-At this time there are 4 dependencies with specific responsabilities :</p>
+At this time there are 4 dependencies with specific responsibilities :</p>
 <ul>
 <li><code>CriteriaBuilder:</code> Parse and serialize the request's query into something understandable for your persistency.</li>
 <li><code>ErrorHandler:</code> Handle how to respond to a request when an error has been raised during the flow.</li>
@@ -639,7 +639,7 @@ the server starts listening. Like creating a connection to the databases, initia
 <h4 id="8-post-start-scripts">8. Post start scripts<a class="headerlink" href="#8-post-start-scripts" title="Permanent link">&para;</a></h4>
 <p>The <code>Post start script</code> as its name indicates is scrips/processes launched after the server started listening on a port.</p>
 <h2 id="archetypes">Archetypes<a class="headerlink" href="#archetypes" title="Permanent link">&para;</a></h2>
-<p>An archetype is a project layout. It means how you will organize your modules.<br />
+<p>An archetype is a project layout. It means how modules will be organized.
 Here is the default Idylle archetype :
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -661,48 +661,22 @@ Here is the default Idylle archetype :
 18
 19
 20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    . actions/    
-        . index.js
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    . actions/
         . resource/
-            . index.js
             . create.js
             . update.js
             . ...
-    . models/
-        . index.js
-        . resource.js
+    . cache/
         . ...
+    . models/
+        . resource.js
     . middlewares/
-        . index.js
         . ...
     . routes/
-        . index.js
         . resources.js
     . settings/
-        . index.js
         . settings.json
         . xy.json
-        . ...
-    . docs/
-        . index.js
-        . statics.js
-        . site/
-            ....
-    . utils/
-        . index.js
         . ...
     . index.js
     . package.json
@@ -710,6 +684,7 @@ Here is the default Idylle archetype :
     . .....
 </pre></div>
 </td></tr></table></p>
+<p>When you follow an Idylle Archetype, <strong>you don't need to require any file</strong> everything is required automatically and attached to the <code>Core</code>.</p>
                 
                   
                 
