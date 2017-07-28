@@ -2,7 +2,7 @@
 Idylle is a micro-framework on top of express (so far).
 In terms of architecture Idylle encapsulate en express instance as a server, and use it as default HTTP server and a router.
 
-Around this server, it defines few modules with specific responsabilities.
+Around this server, it defines few modules with specific responsibilities.
 
 ## Life cycle
 ![Screenshot](https://github.com/julien-sarazin/Idylle/raw/gh-pages/images/architecture-life-cycle.png)
@@ -10,7 +10,7 @@ Around this server, it defines few modules with specific responsabilities.
 ### 1. Initialization
 #### 1. Dependencies
 The dependency module regroups all systems that can be override/extended.
-At this time there are 4 dependencies with specific responsabilities :
+At this time there are 4 dependencies with specific responsibilities :
 
   - `CriteriaBuilder:` Parse and serialize the request's query into something understandable for your persistency.
   - `ErrorHandler:` Handle how to respond to a request when an error has been raised during the flow.
@@ -90,41 +90,31 @@ The `Post start script` as its name indicates is scrips/processes launched after
 
 
 ## Archetypes
-An archetype is a project layout. It means how you will organize your modules.  
+An archetype is a project layout. It means how modules will be organized.
 Here is the default Idylle archetype :
 ```
-    . actions/    
-        . index.js
+    . actions/
         . resource/
-            . index.js
             . create.js
             . update.js
             . ...
-    . models/
-        . index.js
-        . resource.js
+    . cache/
         . ...
+    . models/
+        . resource.js
     . middlewares/
-        . index.js
         . ...
     . routes/
-        . index.js
         . resources.js
     . settings/
-        . index.js
         . settings.json
         . xy.json
-        . ...
-    . docs/
-        . index.js
-        . statics.js
-        . site/
-            ....
-    . utils/
-        . index.js
         . ...
     . index.js
     . package.json
     . .gitignore
     . .....
 ```
+
+
+When you follow an Idylle Archetype, **you don't need to require any file** everything is required automatically and attached to the `Core`.

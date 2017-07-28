@@ -1,24 +1,29 @@
 # Getting started
 Follow the path to quickly dive into the micro framework.
 
-## Installation
-
-```bash
-npm init
-
-npm install --save idylle
-npm install --save express
-npm install --save lodash
-```
-
-## The Quick start
+## The Quickest way
+### Setting up the project
 
 ```bash
 $ npm install -g idylle-cli
-$ npm new <my_project>
+$ idylle new <my_project>
 $ cd my_project
 $ npm i
 $ npm start
+```
+
+### Adding a new Resource to your app
+```bash
+$ idylle add <resource>
+```
+
+## The other way
+```bash
+$ npm init
+
+$ npm install --save idylle
+$ npm install --save express
+$ npm install --save lodash
 ```
 
 ## Setting up your server from scratch
@@ -33,6 +38,51 @@ app.start();
 ```
 
 By default the server's listens on `0.0.0.0` on port `8000`. If you check in your browser at `localhost:8000` you should the the famous express's error handling `cannot GET /`.
+
+## Archetype concepts
+In Idylle, the `Archetype` concept allows you to configure your server by following specific directory structure.
+
+The default archetype in Idylle looks like this :
+
+```
+project/
+    actions/      <------- domain related functions, controllers, ...
+    boot/         <------- database connections, fixtures, ...
+    cache/        <------- cache system definition/initialization
+    middlewares/  <------- generic middleware layers (body-parser, loggers, cors, mutler, ...)
+    models/       <------- ORM/ODM models configuration
+    routes/       <------- HTTP routing configuration
+    settings/     <------- server configuration (port, tokens, secrets, hosts, ...)
+```
+
+This way, you don't need any `index.js` files. The framework will load all module injecting your app in each file.
+For example, let's say you have a Resource `Todo`.
+
+```javascript
+// project/models/Todo.js
+const mongoose = require('mongoose');
+module.exports = mongoose.model('Todo', {title: String, dueDate: Date});
+```
+
+```javascript
+// project/actions/todos/create.js
+module.exports = app => {
+    const Todo = app.models.Todo; // Here the model becomes available as soon as it is created in the "models" directory.
+    return Action({execute: context => Todo.create(context.data));
+}
+```
+
+```javascript
+// project/routes/todos.js
+module.exports = app => {
+    const router = app.server.Router();
+    router.post('/', app.actions.todos.create.expose()); // Here actions become available as soon as they are created in the "actions" directory/
+}
+```
+
+## Configuring everything manually
+If the default archetype isn't something you like, you are still able to configure how your modules will interact with each others.
+Basically Idylle is just the glue that help modules to stick together :)
 
 ## 1. Configuring the server
 When it comes to configure the server, you need to listen on a specific event `Core.events.init.settings`.
@@ -91,7 +141,7 @@ Once defined, the action can be attached to the `Core` via the init event `Core.
 ```javascript
 ...
 app.on(Core.events.init.actions, app => {
-  app.actions = {
+  app.actions = { // here you could call your actions "app.controllers"
     itWorks: require('./itWorks.js')(app)
   };
 });

@@ -35,11 +35,6 @@ and we are constantly asking for feedbacks to bring the most flexible architectu
         * [ ] AMQP
         * [ ] MQTT
     * [ ] Add a messaging router
-* [ ] Unbind **Idylle** and `Express`
 * [ ] Add a command line interface to ease redudant tasks
-    * [ ] create a project
-    * [ ] add a model
-        * [ ] auto-generate CRUD
-    * [ ] add an action
-        * [ ] select either or not it has to be exposed.
-    * [ ] add route
+    * [x] create a project
+    * [ ] generate CRUD for a given Model
