@@ -1,11 +1,11 @@
 {
   "name": "idylle",
-  "version": "2.0.4",
+  "version": "2.0.7",
   "description": "A micro framework on top of express.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha $(find . -name '*.specs.js' ! -ipath '*node_modules*') --timeout 20000 --require ./test",
-    "coverage": "istanbul cover _mocha"
+    "test": "mocha $(find ./lib -name '*.specs.js' ! -ipath '*node_modules*') --timeout 20000 --require ./test",
+    "coverage": "istanbul cover _mocha $(find ./lib -name '*.specs.js' ! -ipath '*node_modules*') --timeout 20000 --require ./test"
   },
   "repository": {
     "type": "git",
