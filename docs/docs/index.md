@@ -1,8 +1,8 @@
 # Introduction
-[![Build Status](https://travis-ci.org/julien-sarazin/Idylle.svg?branch=master)](https://travis-ci.org/julien-sarazin/Idylle.svg?branch=master)
+[![Build Status](https://travis-ci.org/Digipolitan/idylle.svg?branch=master)](https://travis-ci.org/Digipolitan/idylle)
 [![npm version](https://badge.fury.io/js/idylle.svg)](https://badge.fury.io/js/idylle)
 [![dependencies status](https://david-dm.org/julien-sarazin/Idylle.svg)](https://david-dm.org/julien-sarazin/Idylle.svg)
-[![Test Coverage](https://codeclimate.com/github/julien-sarazin/Idylle/coverage.svg)](https://codeclimate.com/github/julien-sarazin/Idylle/coverage)
+[![Test Coverage](https://codeclimate.com/github/Digipolitan/idylle/badges/coverage.svg)](https://codeclimate.com/github/Digipolitan/idylle/coverage)
 
 ### Why another framework ?
 Original team members behind Idylle come from different backgrounds like Front-End developers, Native Mobile Developers (iOS/Android), NodeJS lovers, PhP, J2EE, ...
