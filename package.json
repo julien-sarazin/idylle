@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/julien-sarazin/idylle.git"
+    "url": "git+https://github.com/digipolitan/idylle.git"
   },
   "keywords": [
     "framework",
@@ -22,9 +22,9 @@
   "author": "Julien Sarazin <sarazin.julien@digipolitan.com>, Julian Farhi <farhi.julian@digipolitan.com>, Julien Brouzes <brouzes.julien@digipolitan.com>, Benoit Briatte <briatte.benoit@digipolitan.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/julien-sarazin/idylle/issues"
+    "url": "https://github.com/digipolitan/idylle/issues"
   },
-  "homepage": "https://github.com/julien-sarazin/idylle#readme",
+  "homepage": "https://github.com/digipolitan/idylle#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
     "express": "^4.15.2",
