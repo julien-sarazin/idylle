@@ -6,7 +6,7 @@
 
 A micro framework on top of express.
 
-To know more about the Idylle, our choices and concepts related to it, you can check the [documentation](https://julien-sarazin.github.io/Idylle/).
+To know more about the Idylle, our choices and concepts related to it, you can check the [documentation](https://digipolitan.github.io/Idylle/).
 
 
 ### Quick Usage
