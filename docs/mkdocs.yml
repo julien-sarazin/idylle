@@ -1,15 +1,15 @@
 # Project information
 site_name: 'Idylle'
 site_description: 'Presentation and Documentation of the micro-framework'
-site_author: 'Julien Sarazin'
-site_url: 'https://julien-sarazin.github.io/Idylle/'
+site_author: 'Digipolitan'
+site_url: 'https://digipolitan.github.io/Idylle/'
 
 # Repository
-repo_name: 'julien-sarazin/Idylle'
-repo_url: 'https://github.com/julien-sarazin/Idylle'
+repo_name: 'Digipolitan/idylle'
+repo_url: 'https://github.com/digipolitan/idylle'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2017'
+copyright: 'Copyright &copy; 2017 - 2018'
 
 # Documentation and theme
 theme: 'material'
