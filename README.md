@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/Digipolitan/idylle.svg?branch=master)](https://travis-ci.org/Digipolitan/idylle)
 [![npm version](https://badge.fury.io/js/idylle.svg)](https://badge.fury.io/js/idylle)
 [![dependencies status](https://david-dm.org/julien-sarazin/Idylle.svg)](https://david-dm.org/julien-sarazin/Idylle.svg)
-[![Test Coverage](https://codeclimate.com/github/digipolitan/Idylle/coverage.svg)](https://codeclimate.com/github/digipolitan/Idylle/coverage)
+[![Test Coverage](https://codeclimate.com/github/Digipolitan/idylle/badges/coverage.svg)](https://codeclimate.com/github/Digipolitan/idylle/coverage)
 
 A micro framework on top of express.
 
