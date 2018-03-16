@@ -1,12 +1,12 @@
 # Project information
 site_name: 'Idylle'
 site_description: 'Presentation and Documentation of the micro-framework'
-site_author: 'Digipolitan'
-site_url: 'https://digipolitan.github.io/Idylle/'
+site_author: 'Julien Sarazin'
+site_url: 'https://julien-sarazin.github.io/Idylle/'
 
 # Repository
-repo_name: 'Digipolitan/idylle'
-repo_url: 'https://github.com/digipolitan/idylle'
+repo_name: 'julien-sarazin/idylle'
+repo_url: 'https://github.com/julien-sarazin/idylle'
 
 # Copyright
 copyright: 'Copyright &copy; 2017 - 2018'
@@ -41,8 +41,6 @@ markdown_extensions:
   - pymdownx.betterem(smart_enable=all)
   - pymdownx.caret
   - pymdownx.critic
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
