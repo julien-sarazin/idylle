@@ -51,6 +51,5 @@ markdown_extensions:
 
 pages:
     - Introduction: index.md
-    - Getting Started: getting-started.md
     - Architecture: architecture.md
     - Dependencies: dependencies.md
