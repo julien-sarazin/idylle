@@ -1,12 +1,12 @@
 # Idylle
-[![Build Status](https://travis-ci.org/Digipolitan/idylle.svg?branch=master)](https://travis-ci.org/Digipolitan/idylle)
+[![Build Status](https://travis-ci.org/julien-sarazin/idylle.svg?branch=master)](https://travis-ci.org/julien-sarazin/idylle)
 [![npm version](https://badge.fury.io/js/idylle.svg)](https://badge.fury.io/js/idylle)
 [![dependencies status](https://david-dm.org/julien-sarazin/Idylle.svg)](https://david-dm.org/julien-sarazin/Idylle.svg)
-[![Test Coverage](https://codeclimate.com/github/Digipolitan/idylle/badges/coverage.svg)](https://codeclimate.com/github/Digipolitan/idylle/coverage)
+[![Test Coverage](https://codeclimate.com/github/julien-sarazin/idylle/badges/coverage.svg)](https://codeclimate.com/github/julien-sarazin/idylle/coverage)
 
 A micro framework on top of express.
 
-To know more about the Idylle, our choices and concepts related to it, you can check the [documentation](https://digipolitan.github.io/idylle/).
+To know more about the Idylle, our choices and concepts related to it, you can check the [documentation](https://julien-sarazin.github.io/idylle/).
 
 
 ### Quick Usage
