@@ -1,6 +1,6 @@
 {
   "name": "idylle",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "A micro framework on top of express.",
   "main": "index.js",
   "scripts": {
@@ -26,10 +26,11 @@
   },
   "homepage": "https://github.com/digipolitan/idylle#readme",
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "express": "^4.15.2",
-    "lodash": "^4.17.4",
-    "recursive-readdir": "^2.2.1"
+    "bluebird": "3.5.1",
+    "express": "4.16.3",
+    "lodash": "4.17.10",
+    "recursive-readdir": "2.2.1",
+    "socket.io": "2.1.1"
   },
   "devDependencies": {
     "chai": "^4.0.2",
