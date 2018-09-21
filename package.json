@@ -19,7 +19,7 @@
     "javascript",
     "es6"
   ],
-  "author": "Julien Sarazin <sarazin.julien@loginchinese.com>, Julian Farhi <farhi.julian@loginchinese.com>, Julien Brouzes <brouzes.julien@loginchinese.com>, Benoit Briatte <briatte.benoit@loginchinese.com>, Ilies Lebcir <lebcir.ilies@loginchinese.com>, Julien Baczynski <bacsynski.julien@loginchinese.com>",
+  "author": "Julien Sarazin <sarazin.julien@loginchinese.com>, Julian Farhi <farhi.julian@loginchinese.com>, Julien Brouzes <brouzes.julien@loginchinese.com>, Julien Baczynski <bacsynski.julien@loginchinese.com>, Christophe Gasquez <christophe.gasquez@loginchinese.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/loginchinese/idylle/issues"
